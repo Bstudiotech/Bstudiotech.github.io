@@ -1,0 +1,30 @@
+@mixin laptop-big() {
+  @media (max-width: $laptop-big) {
+    @content;
+  }
+}
+@mixin laptop() {
+  @media (max-width: $laptop) {
+    @content;
+  }
+}
+@mixin laptop-small() {
+  @media (max-width: $laptop-small) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+@mixin mobile() {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+@mixin mobile-small() {
+  @media (max-width: $mobile-small) {
+    @content;
+  }
+}

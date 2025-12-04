@@ -1,0 +1,110 @@
+.main {
+  position: relative;
+}
+
+.goals {
+  margin-top: 64px;
+}
+.goals .text-25 {
+  margin-top: 24px;
+}
+.goals__photo {
+  margin-top: 64px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.goals .grid-2 {
+  margin-top: 59px;
+}
+
+.structure {
+  margin-top: 64px;
+}
+.structure__title-1 {
+  margin-top: 21px;
+}
+.structure__title-2 {
+  margin-top: 80px;
+}
+.structure-list {
+  margin-top: 79px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+.structure-list-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+.structure-list-row--last {
+  justify-content: space-between;
+}
+.structure-list__element {
+  max-width: 19.88rem;
+  height: 4.31rem;
+  width: 100%;
+  flex: 1;
+  border: 1px solid #e64d3d;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6e758c;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.steps {
+  margin-top: 64px;
+}
+
+.people {
+  margin-top: 72px;
+}
+.people .text-2 {
+  margin-top: 21px;
+}
+.people-list {
+  margin-top: 74px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.people-element {
+  width: 100%;
+}
+.people-element-photo {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.people-element-photo__img {
+  border-radius: 0.25rem;
+}
+.people-element__title {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: #fff;
+}
+.people-element__who {
+  margin-top: 24px;
+  font-weight: 400;
+  font-size: 0.94rem;
+  color: #fff;
+}
+.people-element__job {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+}
+.people-element__text {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}/*# sourceMappingURL=about.css.map */
