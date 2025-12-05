@@ -111,13 +111,15 @@ body {
   width: 100%;
   position: relative;
   scrollbar-width: thin;
-  overflow-x: hidden;
 }
 main {
   padding: 0 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  @include mobile {
+    padding: 0 16px;
+  }
 }
 
 input {
@@ -275,6 +277,12 @@ section {
   svg {
     color: #315494;
   }
+  @include mobile {
+    padding: 10px 24px;
+    &__text {
+      font-size: 12px;
+    }
+  }
 }
 
 .title {
@@ -284,6 +292,12 @@ section {
   color: $text-color;
   span {
     color: #315494;
+  }
+  @include mobile {
+    font-size: 24px;
+    br {
+      display: none;
+    }
   }
 }
 
@@ -364,6 +378,14 @@ section {
       max-width: 142px;
     }
   }
+
+  @include mobile {
+    padding: 16px 16px 24px 16px;
+    &__logo {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 }
 
 .burger {
@@ -411,6 +433,14 @@ section {
   }
   @include laptop-small {
     flex-shrink: 2;
+  }
+
+  @include mobile {
+    width: unset;
+    min-width: unset;
+    &__text {
+      display: none;
+    }
   }
 }
 
@@ -527,6 +557,56 @@ section {
     font-size: 12px;
     color: $box-color;
   }
+  @include mobile {
+    padding: 16px;
+
+    &__title {
+      font-size: 24px;
+    }
+    &-content {
+      padding: 24px;
+    }
+    &__content {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: unset;
+      gap: 26px;
+    }
+
+    &__section {
+      &-title {
+        font-size: 16px;
+      }
+    }
+
+    &__list {
+      margin-top: 16px;
+      gap: 16px;
+      padding-left: 0;
+    }
+    &__link {
+      font-size: 14px;
+    }
+    &__footer {
+      margin-top: 56px;
+    }
+    &__logo {
+      font-size: 24px;
+      margin-left: 0;
+    }
+
+    &__info {
+      flex-direction: column-reverse;
+      align-items: unset;
+      gap: 17px;
+    }
+    &__address {
+      font-size: 12px;
+      text-align: left;
+      color: $box-color;
+    }
+  }
 }
 
 .main {
@@ -599,5 +679,57 @@ section {
       font-size: 12px;
       color: $text-color;
     }
+  }
+  @include mobile {
+    margin-top: 24px;
+    padding: 0 16px 36px 16px;
+    &-head {
+      flex-direction: column;
+      gap: 16px;
+    }
+    &-block {
+      max-width: 100%;
+      min-height: unset;
+      gap: 8px;
+    }
+    &-links {
+      gap: 8px;
+    }
+    &__who {
+      margin-left: 0;
+      text-align: left;
+    }
+    &-bottom {
+      margin-top: 24px;
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+      &-left {
+        flex-direction: column;
+        gap: 16px;
+      }
+      &__link {
+        font-size: 12px;
+        color: $text-color;
+        text-decoration: underline;
+      }
+      &__copyright {
+        margin-left: 0;
+        font-size: 12px;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+.desk {
+  @include mobile {
+    display: none !important;
+  }
+}
+.mob {
+  display: none !important;
+  @include mobile {
+    display: flex !important;
   }
 }
