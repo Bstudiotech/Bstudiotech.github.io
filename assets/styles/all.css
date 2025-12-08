@@ -446,6 +446,25 @@ section {
 .link svg {
   color: #315494;
 }
+.link--blue {
+  border-color: #fff;
+  background: #315494;
+}
+.link--blue:hover {
+  background: #fff;
+}
+.link--blue:hover .link__text {
+  color: #315494;
+}
+.link--blue:hover svg {
+  color: #315494;
+}
+.link--blue .link__text {
+  color: #fff;
+}
+.link--blue svg {
+  color: #fff;
+}
 @media (max-width: 920px) {
   .link {
     padding: 10px 24px;
