@@ -682,15 +682,15 @@
           </div>
         </div>
         <div class="slider-arrows mob">
-          <button class="slider-arrow slider-prev">
+          <button class="slider-arrow slider-prev-2">
             <img
-              src="/assets/imgs/arrow.svg"
+              src="/assets/imgs/arrow-blue.svg"
               alt=""
               class="slider-arrow__img" />
           </button>
-          <button class="slider-arrow slider-next">
+          <button class="slider-arrow slider-next-2">
             <img
-              src="/assets/imgs/arrow.svg"
+              src="/assets/imgs/arrow-blue.svg"
               alt=""
               class="slider-arrow__img" />
           </button>
@@ -1008,12 +1008,7 @@
 
         function updateMargins2() {
           const width = $(window).width();
-          let margin = "0 30px";
-
-          if (width < 1600) margin = "0 26px";
-          if (width < 1200) margin = "0 20px";
-          if (width < 992) margin = "0 14px";
-
+          let margin = "0 12px";
           slider2.find(".slick-slide").css({margin});
         }
 

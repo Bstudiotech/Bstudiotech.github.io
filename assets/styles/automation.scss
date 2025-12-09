@@ -88,6 +88,36 @@
       margin-top: 36px;
     }
   }
+  @include mobile{
+    &-fill{
+      flex-direction: column;
+    }
+    &-left{
+      padding: 32px 24px;
+      max-width: 100%;
+      min-height: unset;
+    }
+    &__description{
+      display: none;
+    }
+    &__title{
+      margin-top: 0;
+      font-size: 16px;
+    }
+    &__text{
+      margin-top: 16px;
+      font-size: 15px;
+    }
+    .link{
+      margin-top: 40px;
+    }
+    &-mid{
+      aspect-ratio: 1 / 1;
+    }
+    &-tel{
+      display: none;
+    }
+  }
 }
 .hero {
   margin-top: 24px;
@@ -111,6 +141,7 @@
     color: #000;
   }
   @include mobile {
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -228,10 +259,6 @@
     max-width: 434px;
     width: 100%;
   }
-  $ring-size: 200px;
-  $ring-thickness: 20px;
-  $animation-duration: 1.5s;
-
   &-ring {
     margin: 39px auto 0 auto;
     position: relative;
@@ -281,29 +308,6 @@
       font-size: 26px;
     }
   }
-
-  @keyframes fill {
-    0% {
-      opacity: 1;
-      --fill: 0;
-    }
-    100% {
-      opacity: 1;
-      --fill: 1;
-    }
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   &-ul {
     padding-left: 20px;
     display: flex;
@@ -318,6 +322,71 @@
       font-weight: 400;
     }
   }
+
+  @include laptop{
+    &-left{
+      max-width: 268px;
+    }
+  }
+  @media (max-width: 1165px){
+    &-fill{
+      flex-direction: column;
+    }
+    &-left{
+      max-width: 100%;
+      padding: 24px;
+    }
+    &-element{
+      padding: 24px 8px 24px 24px;
+      &-decoration{
+        min-height: 59px;
+      }
+      &-left{
+        flex-direction: row;
+        align-items: center;
+      }
+      &__title{
+        margin-top: 0;
+      }
+    }
+    &-right{
+      max-width: 100%;
+    }
+  }
+  @include mobile{
+    &-left{
+      &__title{
+        font-size: 24px;
+      }
+    }
+    &-element{
+      overflow: hidden;
+      padding: 24px 8px 24px 24px;
+      &__number{
+        font-size: 48px;
+      }
+      &__title{
+        font-size: 18px;
+      }
+      &-decoration{
+        width: 8px;
+      }
+    }
+    &-right{
+      padding: 32px 16px;
+    }
+    &-ring{
+      width: 295px;
+      height: 295px;
+
+    }
+    &-ul{
+      li{
+        font-size: 16px;
+      }
+    }
+  }
+
 }
 .about {
   background: $box-color;
@@ -475,7 +544,7 @@
 
 .projects {
   background: $box-color;
-  padding: 40px 32px;
+  padding: 40px 0;
   .slider__title {
     font-weight: 700;
     font-size: 24px;
@@ -501,9 +570,14 @@
 
   .slider-list-2 {
     margin-top: 24px;
+
+      padding: 0 20px;
   }
   .slick-track {
     display: flex !important;
+  }
+  .slider-head{
+    padding: 0 32px;
   }
   &__title {
     font-weight: 700;
@@ -535,5 +609,41 @@
   }
   .link {
     margin-top: auto;
+  }
+
+  @include mobile{
+    padding: 32px 0;
+    .slider-head{
+      padding: 0 24px;
+    }
+    .slider__title{
+      text-align: left;
+    }
+    &-element{
+      padding: 32px 16px;
+    }
+    &__title{
+      font-size: 20px;
+    }
+    .slider-list-2{
+      padding: 0 12px;
+    }
+    &__img{
+      margin-top: 8px;
+    }
+    &__subtitle{
+      font-size: 16px;
+      margin-top: 8px;
+    }
+    &__ul{
+      margin-top: 8px;
+      li{
+        font-size: 14px;
+      }
+    }
+    .slider-arrows{
+      margin-top: 24px;
+      padding: 0 24px;
+    }
   }
 }
