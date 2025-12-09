@@ -129,7 +129,7 @@
   flex-direction: column;
   gap: 24px;
   padding: 48px 32px 32px 32px;
-  min-height: 428px;
+  min-height: 540px;
   border-radius: 24px;
   background: #fff;
 }
@@ -617,4 +617,4 @@
     margin-top: 24px;
     padding: 0 24px;
   }
-}/*# sourceMappingURL=automation.css.map */
+}/*# sourceMappingURL=automation copy.css.map */
