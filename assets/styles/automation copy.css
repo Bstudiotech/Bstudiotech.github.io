@@ -39,7 +39,7 @@
   max-width: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .preview-tel {
   display: flex;
@@ -52,17 +52,17 @@
   gap: 24px;
 }
 .preview-tel-icon {
-  border: 1px solid #b4b4b9;
+  border: 1px solid $alternative-text;
   border-radius: 24px;
   width: 56px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b4b4b9;
+  color: $alternative-text;
 }
 .preview-tel-open {
-  border: 1px solid #b4b4b9;
+  border: 1px solid $alternative-text;
   border-radius: 24px;
   width: 56px;
   height: 56px;
@@ -70,7 +70,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease-in-out;
-  color: #b4b4b9;
+  color: $alternative-text;
 }
 .preview-tel-open:hover {
   border-color: #315494;
@@ -372,7 +372,7 @@
 .about__annotation {
   font-weight: 400;
   font-size: 14px;
-  color: #b4b4b9;
+  color: $alternative-text;
 }
 .about-fill {
   margin-top: 39px;
@@ -617,4 +617,4 @@
     margin-top: 24px;
     padding: 0 24px;
   }
-}/*# sourceMappingURL=automation copy.css.map */
+} /*# sourceMappingURL=automation copy.css.map */
