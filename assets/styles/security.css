@@ -681,4 +681,144 @@
   .program .link {
     margin-top: 24px;
   }
+}
+
+.information-fill {
+  display: flex;
+}
+.information-left {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.information-head {
+  padding: 40px 32px;
+}
+.information-head__text {
+  font-size: 20px;
+}
+.information-head__text span {
+  color: #315494;
+}
+.information-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.information-block {
+  min-height: 285px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: space-between;
+}
+.information-block-head {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-between;
+}
+.information-block__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #315494;
+}
+.information__photo {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 24px;
+}
+@media (max-width: 1200px) {
+  .information__photo {
+    display: none;
+  }
+}
+@media (max-width: 920px) {
+  .information-head {
+    padding: 24px;
+  }
+  .information-list {
+    grid-template-columns: 1fr;
+  }
+  .information-block {
+    min-height: 380px;
+  }
+  .information-block-head {
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+.threats {
+  padding: 40px 32px;
+  background: #315494;
+  border-radius: 24px;
+  width: 100%;
+}
+.threats__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+}
+.threats__text {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 138%;
+  color: #fff;
+}
+.threats-list {
+  margin-top: 62px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  width: 100%;
+  gap: 34px;
+}
+.threats-element {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.threats-element__title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+.threats-element__text {
+  margin-top: 3px;
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.threats-element__text span {
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+}
+.threats .link {
+  margin-top: 65px;
+  max-width: 521px;
+  width: 100%;
+}
+@media (max-width: 1440px) {
+  .threats-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 1200px) {
+  .threats-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 920px) {
+  .threats {
+    padding: 32px 24px;
+  }
+  .threats-list {
+    margin-top: 32px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
 }/*# sourceMappingURL=security.css.map */

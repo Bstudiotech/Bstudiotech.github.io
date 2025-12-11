@@ -88,33 +88,33 @@
       margin-top: 36px;
     }
   }
-  @include mobile{
-    &-fill{
+  @include mobile {
+    &-fill {
       flex-direction: column;
     }
-    &-left{
+    &-left {
       padding: 32px 24px;
       max-width: 100%;
       min-height: unset;
     }
-    &__description{
+    &__description {
       display: none;
     }
-    &__title{
+    &__title {
       margin-top: 0;
       font-size: 16px;
     }
-    &__text{
+    &__text {
       margin-top: 16px;
       font-size: 15px;
     }
-    .link{
+    .link {
       margin-top: 40px;
     }
-    &-mid{
+    &-mid {
       aspect-ratio: 1 / 1;
     }
-    &-tel{
+    &-tel {
       display: none;
     }
   }
@@ -139,7 +139,7 @@
     font-family: $second-family;
     font-size: 14px;
     color: #000;
-    span{
+    span {
       font-weight: 700;
     }
   }
@@ -326,70 +326,68 @@
     }
   }
 
-  @include laptop{
-    &-left{
+  @include laptop {
+    &-left {
       max-width: 268px;
     }
   }
-  @media (max-width: 1165px){
-    &-fill{
+  @media (max-width: 1165px) {
+    &-fill {
       flex-direction: column;
     }
-    &-left{
+    &-left {
       max-width: 100%;
       padding: 24px;
     }
-    &-element{
+    &-element {
       padding: 24px 8px 24px 24px;
-      &-decoration{
+      &-decoration {
         min-height: 59px;
       }
-      &-left{
+      &-left {
         flex-direction: row;
         align-items: center;
       }
-      &__title{
+      &__title {
         margin-top: 0;
       }
     }
-    &-right{
+    &-right {
       max-width: 100%;
     }
   }
-  @include mobile{
-    &-left{
-      &__title{
+  @include mobile {
+    &-left {
+      &__title {
         font-size: 24px;
       }
     }
-    &-element{
+    &-element {
       overflow: hidden;
       padding: 24px 8px 24px 24px;
-      &__number{
+      &__number {
         font-size: 48px;
       }
-      &__title{
+      &__title {
         font-size: 18px;
       }
-      &-decoration{
+      &-decoration {
         width: 8px;
       }
     }
-    &-right{
+    &-right {
       padding: 32px 16px;
     }
-    &-ring{
+    &-ring {
       width: 295px;
       height: 295px;
-
     }
-    &-ul{
-      li{
+    &-ul {
+      li {
         font-size: 16px;
       }
     }
   }
-
 }
 .about {
   background: $box-color;
@@ -574,12 +572,12 @@
   .slider-list-2 {
     margin-top: 24px;
 
-      padding: 0 20px;
+    padding: 0 20px;
   }
   .slick-track {
     display: flex !important;
   }
-  .slider-head{
+  .slider-head {
     padding: 0 32px;
   }
   &__title {
@@ -614,100 +612,239 @@
     margin-top: auto;
   }
 
-  @include mobile{
+  @include mobile {
     padding: 32px 0;
-    .slider-head{
+    .slider-head {
       padding: 0 24px;
     }
-    .slider__title{
+    .slider__title {
       text-align: left;
     }
-    &-element{
+    &-element {
       padding: 32px 16px;
     }
-    &__title{
+    &__title {
       font-size: 20px;
     }
-    .slider-list-2{
+    .slider-list-2 {
       padding: 0 12px;
     }
-    &__img{
+    &__img {
       margin-top: 8px;
     }
-    &__subtitle{
+    &__subtitle {
       font-size: 16px;
       margin-top: 8px;
     }
-    &__ul{
+    &__ul {
       margin-top: 8px;
-      li{
+      li {
         font-size: 14px;
       }
     }
-    .slider-arrows{
+    .slider-arrows {
       margin-top: 24px;
       padding: 0 24px;
     }
   }
 }
 
-.program{
+.program {
   padding: 48px 32px 32px 32px;
   min-height: 428px;
   background: $box-color;
   border-radius: 24px;
   display: flex;
-  &-fill{
+  &-fill {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     align-items: center;
     width: 100%;
   }
-  &-left{
+  &-left {
     display: flex;
     flex-direction: column;
     gap: 24px;
     height: 100%;
   }
-  &__text{
+  &__text {
     margin-top: auto;
     font-size: 18px;
     line-height: 133%;
     color: #3a3a3b;
-    span{
-    font-weight: 700;
+    span {
+      font-weight: 700;
     }
   }
-  &-photo{
+  &-photo {
     max-width: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  @include mobile{
+  @include mobile {
     padding: 40px 24px 24px 24px;
     min-height: unset;
-    &-fill{
+    &-fill {
       display: flex;
       align-items: center;
       width: 100%;
     }
-    &-left{
+    &-left {
       gap: 0;
     }
-    &__text{
+    &__text {
       margin-top: 43px;
       font-size: 14px;
     }
-    &-photo{
-      &__img{
+    &-photo {
+      &__img {
         margin-top: 43px;
         max-width: 221px;
       }
     }
-    .link{
+    .link {
       margin-top: 24px;
+    }
+  }
+}
+
+.information {
+  &-fill {
+    display: flex;
+  }
+  &-left {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &-head {
+    padding: 40px 32px;
+    &__text {
+      font-size: 20px;
+      span {
+        color: #315494;
+      }
+    }
+  }
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &-block {
+    min-height: 285px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+    &-head {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      justify-content: space-between;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 24px;
+      color: #315494;
+    }
+  }
+  &__photo {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  @include laptop-small {
+    &__photo {
+      display: none;
+    }
+  }
+  @include mobile {
+    &-head {
+      padding: 24px;
+    }
+    &-list {
+      grid-template-columns: 1fr;
+    }
+    &-block {
+      min-height: 380px;
+      &-head {
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+  }
+}
+.threats {
+  padding: 40px 32px;
+  background: #315494;
+  border-radius: 24px;
+  width: 100%;
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    color: $box-color;
+  }
+  &__text {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 138%;
+    color: $box-color;
+  }
+  &-list {
+    margin-top: 62px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    width: 100%;
+    gap: 34px;
+  }
+  &-element {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &__title {
+      font-weight: 600;
+      font-size: 16px;
+      color: $box-color;
+    }
+    &__text {
+      margin-top: 3px;
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      span {
+        font-weight: 500;
+        font-size: 14px;
+        color: $box-color;
+      }
+    }
+  }
+  .link {
+    margin-top: 65px;
+    max-width: 521px;
+    width: 100%;
+  }
+  @include laptop {
+    &-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @include laptop-small {
+    &-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @include mobile {
+    padding: 32px 24px;
+    &-list {
+      margin-top: 32px;
+      grid-template-columns: 1fr;
+      gap: 22px;
     }
   }
 }
