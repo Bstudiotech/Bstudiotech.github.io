@@ -654,8 +654,8 @@ section {
   transition: all 0.5s ease-in-out;
   transform: translateY(-40px);
   pointer-events: none;
-  -webkit-backdrop-filter: blur(81.5484542847px);
-          backdrop-filter: blur(81.5484542847px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
   background: rgba(241, 241, 241, 0.8);
 }
