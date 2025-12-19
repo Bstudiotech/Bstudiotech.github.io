@@ -319,6 +319,7 @@
   }
   &-list {
     margin-top: 32px;
+    cursor: grab;
   }
   &-arrows {
     display: flex;
@@ -389,7 +390,7 @@
 
   .slider-list-2 {
     margin-top: 24px;
-
+    cursor: grab;
     padding: 0 20px;
   }
   .slick-track {

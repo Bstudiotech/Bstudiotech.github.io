@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no" />
 
     <!-- Основные мета-теги -->
-    <title>Sinatech - Информационная безопасность и автоматизация</title>
+    <title>Sinatech</title>
     <meta
       name="description"
       content="Sinatech - решения в области информационной безопасности, промышленной безопасности (OT Security), автоматизированных систем управления и IT-аудита в Казахстане" />
@@ -433,13 +433,13 @@
             <div class="slider-loader__fill"></div>
           </div>
           <div class="slider-arrows desk">
-            <button class="slider-arrow slider-prev">
+            <button class="slider-arrow slider-prev slider-prev-1">
               <img
                 src="/assets/imgs/arrow.svg"
                 alt=""
                 class="slider-arrow__img" />
             </button>
-            <button class="slider-arrow slider-next">
+            <button class="slider-arrow slider-next slider-next-1">
               <img
                 src="/assets/imgs/arrow.svg"
                 alt=""
@@ -447,7 +447,7 @@
             </button>
           </div>
         </div>
-        <div class="slider-list">
+        <div class="slider-list slider-list-1">
           <div class="slider-element">
             <img
               src="/assets/imgs/partners/simens.svg"
@@ -530,13 +530,14 @@
           </div>
         </div>
         <div class="slider-arrows mob">
-          <button class="slider-arrow slider-prev">
+          <button class="slider-arrow slider-prev slider-prev-1">
             <img
               src="/assets/imgs/arrow.svg"
               alt=""
               class="slider-arrow__img" />
           </button>
-          <button class="slider-arrow slider-next">
+          <div class="slider-dots slider-dots-1"></div>
+          <button class="slider-arrow slider-next slider-next-1">
             <img
               src="/assets/imgs/arrow.svg"
               alt=""
@@ -544,6 +545,7 @@
           </button>
         </div>
       </section>
+
       <div class="form">
         <div class="form-content">
           <!-- ФОРМА -->
@@ -713,103 +715,77 @@
 
     <script>
       $(document).ready(function () {
-        $(".slider-list").slick({
+        // =================
+        //   СЛАЙДЕР №1
+        // =================
+        const slider1 = $(".slider-list-1");
+
+        slider1.slick({
           slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
           arrows: true,
-          prevArrow: $(".slider-prev"),
-          nextArrow: $(".slider-next"),
+          prevArrow: $(".slider-prev-1"),
+          nextArrow: $(".slider-next-1"),
           speed: 500,
           cssEase: "ease",
           autoplay: true,
-          autoplaySpeed: 3000,
+          autoplaySpeed: 3500,
+          dots: false,
+
           responsive: [
-            {
-              breakpoint: 1200,
-              settings: {slidesToShow: 3},
-            },
-            {
-              breakpoint: 992,
-              settings: {slidesToShow: 2},
-            },
+            {breakpoint: 1400, settings: {slidesToShow: 3}},
+            {breakpoint: 1100, settings: {slidesToShow: 2}},
             {
               breakpoint: 768,
-              settings: {slidesToShow: 1},
-            },
-            {
-              breakpoint: 576,
-              settings: {slidesToShow: 1},
+              settings: {
+                slidesToShow: 1,
+                dots: true,
+                appendDots: $(".slider-dots-1"),
+              },
             },
           ],
         });
 
-        // Функция для обновления отступов
-        function updateMargins() {
+        function updateMargins1() {
           const width = $(window).width();
-          let margin = "0 37px";
+          let margin = "0 40px";
 
-          if (width < 768) margin = "0 20px";
-          else if (width < 992) margin = "0 25px";
-          else if (width < 1200) margin = "0 30px";
+          if (width < 1400) margin = "0 32px";
+          if (width < 1100) margin = "0 28px";
+          if (width < 768) margin = "0 18px";
 
-          $(".slick-slide").css({margin: margin});
+          slider1.find(".slick-slide").css({margin});
         }
 
-        // Отступы
-        $(".slider-list").on("setPosition", updateMargins);
+        slider1.on("setPosition", updateMargins1);
 
-        // Прогресс-бар с безопасной проверкой
-        $(".slider-list").on(
-          "beforeChange",
-          function (event, slick, currentSlide, nextSlide) {
-            // Проверяем, что slick объект существует
-            if (!slick || typeof slick.slideCount === "undefined") {
-              console.warn("Slick object not ready");
-              return;
-            }
-
-            try {
-              const totalSlides =
-                $(".slick-slide").not(".slick-cloned").length ||
-                slick.slideCount;
-
-              if (totalSlides <= 1) {
-                $(".slider-loader__fill").css({width: "100%"});
-                return;
-              }
-
-              const progress = Math.min(
-                100,
-                Math.max(0, (nextSlide / (totalSlides - 1)) * 100)
-              );
-              $(".slider-loader__fill").css({width: progress + "%"});
-
-              const $percent = $(".slider-loader__percent");
-              if ($percent.length) {
-                $percent.text(Math.round(progress) + "%");
-              }
-            } catch (error) {
-              console.error("Error updating progress bar:", error);
-            }
-          }
-        );
-
-        // Ресайз
-        $(window).on("resize", function () {
-          setTimeout(updateMargins, 100);
+        slider1.on("beforeChange", function (e, slick, current, next) {
+          const total = slick.slideCount - 1;
+          if (total <= 0) return;
+          $(".slider-loader__fill-1").css({
+            width: (next / total) * 100 + "%",
+          });
         });
 
-        // Инициализация
-        setTimeout(updateMargins, 100);
+        setTimeout(
+          () =>
+            slider1.trigger("beforeChange", [
+              null,
+              slider1.slick("getSlick"),
+              0,
+              0,
+            ]),
+          300
+        );
 
-        // Инициализация прогресс-бара с задержкой
-        setTimeout(function () {
-          const slick = $(".slider-list").slick("getSlick");
-          if (slick) {
-            $(".slider-list").trigger("beforeChange", [null, slick, 0, 0]);
-          }
-        }, 500);
+        setTimeout(updateMargins1, 100);
+
+        // ===== RESIZE =====
+        $(window).on("resize", function () {
+          setTimeout(updateMargins1, 100);
+          setTimeout(updateMargins2, 100);
+        });
       });
     </script>
 

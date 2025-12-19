@@ -321,6 +321,7 @@
   }
   &-list {
     margin-top: 32px;
+    cursor: grab;
   }
   &-arrows {
     display: flex;
@@ -362,111 +363,111 @@
     }
   }
 }
-.projects {
-  background: $box-color;
-  padding: 40px 0;
-  .slider__title {
-    font-weight: 700;
-    font-size: 24px;
-    color: $text-color;
-  }
-  .slider-loader {
-    background: $background-color;
-    &__fill-2 {
-      background: #315494;
-    }
-  }
-  .slider-prev-2 {
-    transform: rotate(180deg);
-  }
-  &-element {
-    background: #315494;
-    border-radius: 24px;
-    padding: 40px 32px;
-    height: unset !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
+// .projects {
+//   background: $box-color;
+//   padding: 40px 0;
+//   .slider__title {
+//     font-weight: 700;
+//     font-size: 24px;
+//     color: $text-color;
+//   }
+//   .slider-loader {
+//     background: $background-color;
+//     &__fill-2 {
+//       background: #315494;
+//     }
+//   }
+//   .slider-prev-2 {
+//     transform: rotate(180deg);
+//   }
+//   &-element {
+//     background: #315494;
+//     border-radius: 24px;
+//     padding: 40px 32px;
+//     height: unset !important;
+//     display: flex !important;
+//     flex-direction: column !important;
+//   }
 
-  .slider-list-2 {
-    margin-top: 24px;
+//   .slider-list-2 {
+//     margin-top: 24px;
 
-    padding: 0 20px;
-  }
-  .slick-track {
-    display: flex !important;
-  }
-  .slider-head {
-    padding: 0 32px;
-  }
-  &__title {
-    font-weight: 700;
-    font-size: 32px;
-    color: $box-color;
-  }
-  &__img {
-    margin-top: 24px;
-    border-radius: 16px;
-    width: 100%;
-    border-radius: 16px;
-  }
-  &__subtitle {
-    margin-top: 24px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $box-color;
-  }
-  &__ul {
-    margin-top: 20px;
-    padding-left: 16px;
-    margin-bottom: 32px;
+//     padding: 0 20px;
+//   }
+//   .slick-track {
+//     display: flex !important;
+//   }
+//   .slider-head {
+//     padding: 0 32px;
+//   }
+//   &__title {
+//     font-weight: 700;
+//     font-size: 32px;
+//     color: $box-color;
+//   }
+//   &__img {
+//     margin-top: 24px;
+//     border-radius: 16px;
+//     width: 100%;
+//     border-radius: 16px;
+//   }
+//   &__subtitle {
+//     margin-top: 24px;
+//     font-weight: 700;
+//     font-size: 24px;
+//     color: $box-color;
+//   }
+//   &__ul {
+//     margin-top: 20px;
+//     padding-left: 16px;
+//     margin-bottom: 32px;
 
-    li {
-      font-size: 20px;
-      color: $box-color;
-      line-height: 1.5;
-    }
-  }
-  .link {
-    margin-top: auto;
-  }
+//     li {
+//       font-size: 20px;
+//       color: $box-color;
+//       line-height: 1.5;
+//     }
+//   }
+//   .link {
+//     margin-top: auto;
+//   }
 
-  @include mobile {
-    padding: 32px 0;
-    .slider-head {
-      padding: 0 24px;
-    }
-    .slider__title {
-      text-align: left;
-    }
-    &-element {
-      padding: 32px 16px;
-    }
-    &__title {
-      font-size: 20px;
-    }
-    .slider-list-2 {
-      padding: 0 12px;
-    }
-    &__img {
-      margin-top: 8px;
-    }
-    &__subtitle {
-      font-size: 16px;
-      margin-top: 8px;
-    }
-    &__ul {
-      margin-top: 8px;
-      li {
-        font-size: 14px;
-      }
-    }
-    .slider-arrows {
-      margin-top: 24px;
-      padding: 0 24px;
-    }
-  }
-}
+//   @include mobile {
+//     padding: 32px 0;
+//     .slider-head {
+//       padding: 0 24px;
+//     }
+//     .slider__title {
+//       text-align: left;
+//     }
+//     &-element {
+//       padding: 32px 16px;
+//     }
+//     &__title {
+//       font-size: 20px;
+//     }
+//     .slider-list-2 {
+//       padding: 0 12px;
+//     }
+//     &__img {
+//       margin-top: 8px;
+//     }
+//     &__subtitle {
+//       font-size: 16px;
+//       margin-top: 8px;
+//     }
+//     &__ul {
+//       margin-top: 8px;
+//       li {
+//         font-size: 14px;
+//       }
+//     }
+//     .slider-arrows {
+//       margin-top: 24px;
+//       padding: 0 24px;
+//     }
+//   }
+// }
 .program {
   padding: 48px 32px 32px 32px;
   min-height: 428px;
