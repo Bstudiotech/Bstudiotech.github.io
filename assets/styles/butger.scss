@@ -1,0 +1,141 @@
+.item {
+  width: 24px;
+  height: 22px;
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  backface-visibility: hidden;
+
+  span {
+    display: block;
+    background: darken(#7a8c51, 20%);
+    width: calc(100% - 12px); /* уменьшил с 30px до 12px */
+    height: 3px; /* было 5px */
+    position: absolute;
+    left: 6px; /* было 15px */
+    right: 6px; /* было 15px */
+
+    &.top {
+      top: 5.5px; /* было 13px */
+    }
+
+    &.middle {
+      top: 10.5px; /* было 23px */
+    }
+
+    &.bottom {
+      top: 15.5px; /* было 33px */
+    }
+  }
+}
+
+/* Анимации также нужно адаптировать под новые размеры */
+.top {
+  animation-name: item-d-top-out;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+
+.middle {
+  animation-name: item-d-middle-out;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+
+.bottom {
+  animation-name: item-d-bottom-out;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+
+&--active {
+  .top {
+    animation-name: item-d-top-in;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+    animation-fill-mode: forwards;
+  }
+
+  .middle {
+    animation-name: item-d-middle-in;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+    animation-fill-mode: forwards;
+  }
+
+  .bottom {
+    animation-name: item-d-bottom-in;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+    animation-fill-mode: forwards;
+  }
+}
+
+/* Обновленные keyframes с учетом новых размеров */
+@keyframes item-d-top-in {
+  50% {
+    transform: translateY(5.5px); /* было 10px */
+  }
+  100% {
+    transform: translateY(5.5px) rotate(45deg); /* было 10px */
+  }
+}
+
+@keyframes item-d-middle-in {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes item-d-bottom-in {
+  50% {
+    transform: translateY(-5.5px); /* было -10px */
+  }
+  100% {
+    transform: translateY(-5.5px) rotate(-45deg); /* было -10px */
+  }
+}
+
+@keyframes item-d-top-out {
+  50% {
+    transform: translateY(5.5px); /* было 10px */
+  }
+  100% {
+    transform: translateY(5.5px) rotate(-45deg); /* было 10px */
+  }
+}
+
+@keyframes item-d-middle-out {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes item-d-bottom-out {
+  50% {
+    transform: translateY(-5.5px); /* было -10px */
+  }
+  100% {
+    transform: translateY(-5.5px) rotate(45deg); /* было -10px */
+  }
+}

@@ -67,9 +67,9 @@
 
     <!-- Гео-метатеги -->
     <meta name="geo.region" content="KZ-ALA" />
-    <meta name="geo.placename" content="Almaty" />
-    <meta name="geo.position" content="43.238949;76.889709" />
-    <meta name="ICBM" content="43.238949, 76.889709" />
+    <meta name="geo.placename" content="Almaty, Kazakhstan" />
+    <meta name="geo.position" content="43.252222;76.928056" />
+    <meta name="ICBM" content="43.252222, 76.928056" />
 
     <!-- Дополнительные мета -->
     <meta name="rating" content="General" />
@@ -85,22 +85,57 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Sinatech",
+        "name": "ТОО «Sinatech»",
+        "alternateName": "Sinatech",
+        "legalName": "Товарищество с ограниченной ответственностью «Sinatech»",
+        "description": "ТОО «Sinatech» — казахстанская компания, предоставляющая услуги в сфере информационных технологий (ОКЭД: 62099).",
         "url": "https://sinatech.pro",
         "logo": "https://sinatech.pro/assets/images/logo.png",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+7-727-311-01-70",
-          "contactType": "customer service",
-          "email": "info@sinatech.pro",
-          "availableLanguage": ["Russian", "Kazakh"]
-        },
+        "foundingDate": "2024-04-20",
+        "taxID": "240440029427",
+        "vatID": "60001 № 1254995",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "пр. Аль-Фараби 19, БЦ Нурлы-Тау, блок 4б, этаж 6, офис 606",
-          "addressLocality": "Алматы",
+          "addressCountry": "KZ",
+          "addressRegion": "г. Алматы",
+          "addressLocality": "Бостандыкский район",
+          "streetAddress": "проспект Аль-Фараби, дом 17, н. п. 828",
           "postalCode": "050059",
-          "addressCountry": "KZ"
+          "addressLocality": "Алматы"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+7-727-311-01-70",
+            "contactType": "customer service",
+            "email": "info@sinatech.pro",
+            "availableLanguage": ["Russian", "Kazakh"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "postal address",
+            "streetAddress": "пр. Аль-Фараби 17, БЦ Нурлы-Тау, блок 4б, этаж 6, офис 606",
+            "addressLocality": "Алматы",
+            "postalCode": "050059",
+            "addressCountry": "KZ"
+          }
+        ],
+        "bankAccount": {
+          "@type": "BankAccount",
+          "bankName": "АО «Банк ЦентрКредит»",
+          "bankAddress": "Республика Казахстан, Алмалинский район, ул. Богенбай Батыра, дом 156",
+          "bankBIN": "981141000668",
+          "swiftCode": "KCJBKZKX",
+          "accountNumber": [
+            "IBAN KZ778562203137371541 (KZT)",
+            "IBAN KZ928562203239530992 (EUR)",
+            "IBAN KZ548562203340037741 (RUB)"
+          ]
+        },
+        "employee": {
+          "@type": "Person",
+          "name": "Насыров Илья Валерьевич",
+          "jobTitle": "Директор"
         }
       }
     </script>
@@ -115,6 +150,8 @@
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -145,7 +182,7 @@
           <a
             href="tel:+77273110170"
             class="header__contact header__contact--phone">
-            +7 (727) 311-01-70
+            +7 (727) 311 01 70
             <svg
               width="24"
               height="24"
@@ -195,31 +232,8 @@
 
           <div class="menu__content">
             <div class="menu__section">
-              <a href="./security.html" class="menu__section-title">
-                Информационная безопасность и технологии
-              </a>
-              <ul class="menu__list">
-                <li class="menu__item">
-                  <a href="/security/industry.html" class="menu__link"
-                    >Промышленная безопасность (OT Security)</a
-                  >
-                </li>
-                <li class="menu__item">
-                  <a href="/security/program.html" class="menu__link"
-                    >Программное обеспечение Sunbird</a
-                  >
-                </li>
-                <li class="menu__item">
-                  <a href="/security/audit.html" class="menu__link"
-                    >Осуществление аудита IT-инфраструктуры</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="menu__section">
               <a href="/automation.html" class="menu__section-title">
-                Автоматизированная система управления
+                Автоматизированные системы управления
               </a>
               <ul class="menu__list">
                 <li class="menu__item">
@@ -245,6 +259,28 @@
                 </li>
               </ul>
             </div>
+            <div class="menu__section">
+              <a href="./security.html" class="menu__section-title">
+                Информационная безопасность и&nbsp;технологии
+              </a>
+              <ul class="menu__list">
+                <li class="menu__item">
+                  <a href="/security/industry.html" class="menu__link"
+                    >Промышленная безопасность (OT&nbsp;Security)</a
+                  >
+                </li>
+                <li class="menu__item">
+                  <a href="/security/program.html" class="menu__link"
+                    >Программное обеспечение Sunbird</a
+                  >
+                </li>
+                <li class="menu__item">
+                  <a href="/security/audit.html" class="menu__link"
+                    >Осуществление аудита IT-инфраструктуры</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="menu__footer">
@@ -253,12 +289,12 @@
             <div class="menu__info">
               <p class="menu__address">
                 Республика Казахстан, 050059, г. Алматы, пр. Аль-Фараби 19, БЦ
-                Нурлы-Тау, блок 4б, этаж 6, офис 606
+                Нурлы-Тау, блок&nbsp;4б, этаж&nbsp;6, офис 606
               </p>
 
               <div class="menu__contacts">
                 <a href="tel:+77273110170" class="menu__contact"
-                  >+7 (727) 311-01-70</a
+                  >+7 (727) 311 01 70</a
                 >
                 <a href="mailto:info@sinatech.pro" class="menu__contact"
                   >info@sinatech.pro</a
@@ -274,11 +310,11 @@
       <section class="section hero">
         <div class="hero-block">
           <p class="title">
-            Автоматизированная
-            <span>система управления технологическим</span> процессом
+            Автоматизированные
+            <span>системы управления технологическим</span> процессом
           </p>
           <p class="hero__text">
-            Производим комплекс технических и программных средств для
+            Производим комплекс технических и&nbsp;программных средств для
             автоматизации управления производственными процессами.
           </p>
           <a href="/automation.html" class="link">
@@ -303,9 +339,9 @@
             Информационная <span>безопасность</span> и технологии
           </p>
           <p class="hero__text">
-            Мы разрабатываем средства защиты информационных активов организации
-            от несанкционированного доступа, использования, раскрытия, изменения
-            или уничтожения.
+            Мы&nbsp;разрабатываем средства защиты информационных активов
+            организации от&nbsp;несанкционированного доступа, использования,
+            раскрытия, изменения или уничтожения.
           </p>
           <a href="/security.html" class="link">
             <p class="link__text">Перейти в раздел</p>
@@ -326,22 +362,24 @@
         </div>
       </section>
 
-      <section class="section about">
+      <section class="section about" id="about">
         <p class="about__annotation">О компании</p>
         <div class="about-fill">
           <div class="about-left">
             <p class="title">
-              Мы — профессиональная команда экспертов в области
-              <span>информационной безопасности</span> и
+              Мы&nbsp;&mdash; профессиональная команда экспертов в&nbsp;области
+              <span>информационной безопасности</span> <br />
+              и
               <span>автоматизации</span>
-              технологических процессов.
+              технологических процессов. технологических процессов. процессами.
             </p>
+
             <p class="about__text desk">
-              Наша компания специализируется на создании комплексных решений для
-              защиты информационных систем и управления производственными
-              процессами.
+              Наша компания специализируется на&nbsp;создании комплексных
+              решений для защиты информационных систем и&nbsp;управления
+              производственными процессами.
             </p>
-            <button class="link desk">
+            <button class="link desk open-form-button">
               <p class="link__text">Запросить консультацию</p>
               <svg
                 width="24"
@@ -368,11 +406,11 @@
             autoplay>
           </model-viewer>
           <p class="about__text mob">
-            Наша компания специализируется на создании комплексных решений для
-            защиты информационных систем и управления производственными
+            Наша компания специализируется на&nbsp;создании комплексных решений
+            для защиты информационных систем и&nbsp;управления производственными
             процессами.
           </p>
-          <button class="link mob">
+          <button class="link mob open-form-button">
             <p class="link__text">Запросить консультацию</p>
             <svg
               width="24"
@@ -387,6 +425,7 @@
           </button>
         </div>
       </section>
+
       <section class="section slider">
         <div class="slider-head">
           <p class="slider__title">Наши партнёры</p>
@@ -505,24 +544,148 @@
           </button>
         </div>
       </section>
+      <div class="form">
+        <div class="form-content">
+          <!-- ФОРМА -->
+          <div class="form-block">
+            <div class="form-head">
+              <p class="form__title">Запросить консультацию</p>
+              <button class="close" type="button">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_880_3745)">
+                    <path
+                      d="M3.516 20.484C2.36988 19.377 1.45569 18.0529 0.826781 16.5889C0.197873 15.1248 -0.133162 13.5502 -0.147008 11.9568C-0.160854 10.3635 0.142767 8.78331 0.746137 7.30855C1.34951 5.83379 2.24055 4.49397 3.36726 3.36726C4.49397 2.24055 5.83379 1.34951 7.30855 0.746137C8.78331 0.142767 10.3635 -0.160854 11.9568 -0.147008C13.5502 -0.133162 15.1248 0.197873 16.5889 0.826781C18.0529 1.45569 19.377 2.36988 20.484 3.516C22.6699 5.77922 23.8794 8.81045 23.8521 11.9568C23.8247 15.1032 22.5627 18.1129 20.3378 20.3378C18.1129 22.5627 15.1032 23.8247 11.9568 23.8521C8.81045 23.8794 5.77922 22.6699 3.516 20.484ZM5.208 18.792C7.00935 20.5933 9.4525 21.6053 12 21.6053C14.5475 21.6053 16.9906 20.5933 18.792 18.792C20.5933 16.9906 21.6053 14.5475 21.6053 12C21.6053 9.4525 20.5933 7.00935 18.792 5.208C16.9906 3.40665 14.5475 2.39466 12 2.39466C9.4525 2.39466 7.00935 3.40665 5.208 5.208C3.40665 7.00935 2.39466 9.4525 2.39466 12C2.39466 14.5475 3.40665 16.9906 5.208 18.792ZM17.088 8.604L13.692 12L17.088 15.396L15.396 17.088L12 13.692L8.604 17.088L6.912 15.396L10.308 12L6.912 8.604L8.604 6.912L12 10.308L15.396 6.912L17.088 8.604Z"
+                      fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_880_3745">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+
+            <form class="form-fill" id="consultForm">
+              <div class="form-fill__row">
+                <input type="text" name="name" placeholder="Имя" required />
+                <input type="email" name="email" placeholder="Email" required />
+              </div>
+
+              <input
+                type="text"
+                name="subject"
+                placeholder="Тема вопроса"
+                required />
+              <textarea
+                name="message"
+                placeholder="Ваш вопрос"
+                required></textarea>
+
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" required />
+                <span class="checkbox__box"></span>
+                <span class="checkbox__text"
+                  >Я даю согласие на обработку персональных данных</span
+                >
+              </label>
+
+              <button type="submit" class="form-button form-button--submit">
+                <span class="btn-text">Отправить</span>
+                <span class="btn-loader"></span>
+              </button>
+            </form>
+            <div class="form-info">
+              <p class="form-info__left form-info__text">
+                Алматы, пр. Аль-Фараби 19, БЦ Нурлы-Тау, блок 4б, этаж 6, офис
+                606
+              </p>
+              <div class="form-info-right">
+                <p class="form-info__text">+7 (727) 311 01 70</p>
+                <a
+                  href="mailto:info@sinatech.pro"
+                  class="form-info__text form-info__text--link"
+                  >info@sinatech.pro</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- THANKS -->
+          <div class="form-block is-hidden" id="formThanks">
+            <div class="form-head">
+              <p class="form__title form__title--2">
+                Сообщение отправлено<br />Спасибо!
+              </p>
+              <button class="close" type="button">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_880_3745)">
+                    <path
+                      d="M3.516 20.484C2.36988 19.377 1.45569 18.0529 0.826781 16.5889C0.197873 15.1248 -0.133162 13.5502 -0.147008 11.9568C-0.160854 10.3635 0.142767 8.78331 0.746137 7.30855C1.34951 5.83379 2.24055 4.49397 3.36726 3.36726C4.49397 2.24055 5.83379 1.34951 7.30855 0.746137C8.78331 0.142767 10.3635 -0.160854 11.9568 -0.147008C13.5502 -0.133162 15.1248 0.197873 16.5889 0.826781C18.0529 1.45569 19.377 2.36988 20.484 3.516C22.6699 5.77922 23.8794 8.81045 23.8521 11.9568C23.8247 15.1032 22.5627 18.1129 20.3378 20.3378C18.1129 22.5627 15.1032 23.8247 11.9568 23.8521C8.81045 23.8794 5.77922 22.6699 3.516 20.484ZM5.208 18.792C7.00935 20.5933 9.4525 21.6053 12 21.6053C14.5475 21.6053 16.9906 20.5933 18.792 18.792C20.5933 16.9906 21.6053 14.5475 21.6053 12C21.6053 9.4525 20.5933 7.00935 18.792 5.208C16.9906 3.40665 14.5475 2.39466 12 2.39466C9.4525 2.39466 7.00935 3.40665 5.208 5.208C3.40665 7.00935 2.39466 9.4525 2.39466 12C2.39466 14.5475 3.40665 16.9906 5.208 18.792ZM17.088 8.604L13.692 12L17.088 15.396L15.396 17.088L12 13.692L8.604 17.088L6.912 15.396L10.308 12L6.912 8.604L8.604 6.912L12 10.308L15.396 6.912L17.088 8.604Z"
+                      fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_880_3745">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+
+            <p class="form__text">
+              Мы уже работаем над вашим запросом.<br />
+              В ближайшее время менеджер свяжется с вами.
+            </p>
+            <p class="form__tel">
+              Если у вас срочный вопрос, звоните: +7 (727) 311-01-70
+            </p>
+
+            <button class="form-button form-button--close">Закрыть</button>
+            <div class="form-info">
+              <p class="form-info__left form-info__text">
+                Алматы, пр. Аль-Фараби 19, БЦ Нурлы-Тау, блок 4б, этаж 6, офис
+                606
+              </p>
+              <div class="form-info-right">
+                <p class="form-info__text">+7 (727) 311 01 70</p>
+                <a
+                  href="mailto:info@sinatech.pro"
+                  class="form-info__text form-info__text--link"
+                  >info@sinatech.pro</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
       <div class="footer-head">
         <div class="footer-block">
-          <a href="/" class="footer__logo">Sina<span>tech</span></a>
+          <a href="/" class="footer__logo">Sinatech</a>
           <p class="footer__info">
-            Республика Казахстан, 050059, г. Алматы, пр. Аль-<br />Фараби 19, БЦ
-            Нурлы-Тау, блок 4б, этаж 6, офис 606
+            Республика Казахстан, 050059, г. Алматы, пр. Аль-Фараби 19, БЦ
+            Нурлы-Тау, блок&nbsp;4б, этаж&nbsp;6, офис 606
           </p>
         </div>
         <div class="footer-links">
-          <a href="" class="footer-links__element"
+          <a href="/security.html" class="footer-links__element"
             >Информационная безопасность</a
           >
-          <a href="" class="footer-links__element">АСУ ТП</a>
-          <a href="" class="footer-links__element">О компании</a>
-          <a href="" class="footer-links__element">Контакты</a>
+          <a href="/automation.html" class="footer-links__element">АСУ ТП</a>
+          <a href="#about" class="footer-links__element">О компании</a>
         </div>
         <p class="footer__who">
           Интегратор в области информационных технологий
@@ -530,23 +693,23 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-left">
-          <a href="" class="footer-bottom__link">+7 (727) 311-01-70</a>
-          <a href="" class="footer-bottom__link">info@sinatech.pro</a>
-          <a href="" class="footer-bottom__link">Политика конфиденциальности</a>
+          <a href="tel:+77273110170" class="footer-bottom__link"
+            >+7 (727) 311 01 70</a
+          >
+          <a href="mailto:info@sinatech.pro" class="footer-bottom__link"
+            >info@sinatech.pro</a
+          >
+          <a href="/privacy-policy" class="footer-bottom__link"
+            >Политика конфиденциальности</a
+          >
         </div>
         <p class="footer-bottom__copyright">
-          Все права принадлежат ООО “Синатек” 2025
+          Все права принадлежат ТОО "Sinatech" 2026
         </p>
       </div>
     </footer>
 
     <script src="/scripts/skripts.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <script>
       $(document).ready(function () {
@@ -649,5 +812,7 @@
         }, 500);
       });
     </script>
+
+    <script src="/scripts/form.js"></script>
   </body>
 </html>

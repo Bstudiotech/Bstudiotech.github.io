@@ -65,9 +65,9 @@
 
     <!-- Гео-метатеги -->
     <meta name="geo.region" content="KZ-ALA" />
-    <meta name="geo.placename" content="Almaty" />
-    <meta name="geo.position" content="43.238949;76.889709" />
-    <meta name="ICBM" content="43.238949, 76.889709" />
+    <meta name="geo.placename" content="Almaty, Kazakhstan" />
+    <meta name="geo.position" content="43.252222;76.928056" />
+    <meta name="ICBM" content="43.252222, 76.928056" />
 
     <!-- Дополнительные мета -->
     <meta name="rating" content="General" />
@@ -83,22 +83,57 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Sinatech",
+        "name": "ТОО «Sinatech»",
+        "alternateName": "Sinatech",
+        "legalName": "Товарищество с ограниченной ответственностью «Sinatech»",
+        "description": "ТОО «Sinatech» — казахстанская компания, предоставляющая услуги в сфере информационных технологий (ОКЭД: 62099).",
         "url": "https://sinatech.pro",
         "logo": "https://sinatech.pro/assets/images/logo.png",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+7-727-311-01-70",
-          "contactType": "customer service",
-          "email": "info@sinatech.pro",
-          "availableLanguage": ["Russian", "Kazakh"]
-        },
+        "foundingDate": "2024-04-20",
+        "taxID": "240440029427",
+        "vatID": "60001 № 1254995",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "пр. Аль-Фараби 19, БЦ Нурлы-Тау, блок 4б, этаж 6, офис 606",
-          "addressLocality": "Алматы",
+          "addressCountry": "KZ",
+          "addressRegion": "г. Алматы",
+          "addressLocality": "Бостандыкский район",
+          "streetAddress": "проспект Аль-Фараби, дом 17, н. п. 828",
           "postalCode": "050059",
-          "addressCountry": "KZ"
+          "addressLocality": "Алматы"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+7-727-311-01-70",
+            "contactType": "customer service",
+            "email": "info@sinatech.pro",
+            "availableLanguage": ["Russian", "Kazakh"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "postal address",
+            "streetAddress": "пр. Аль-Фараби 17, БЦ Нурлы-Тау, блок 4б, этаж 6, офис 606",
+            "addressLocality": "Алматы",
+            "postalCode": "050059",
+            "addressCountry": "KZ"
+          }
+        ],
+        "bankAccount": {
+          "@type": "BankAccount",
+          "bankName": "АО «Банк ЦентрКредит»",
+          "bankAddress": "Республика Казахстан, Алмалинский район, ул. Богенбай Батыра, дом 156",
+          "bankBIN": "981141000668",
+          "swiftCode": "KCJBKZKX",
+          "accountNumber": [
+            "IBAN KZ778562203137371541 (KZT)",
+            "IBAN KZ928562203239530992 (EUR)",
+            "IBAN KZ548562203340037741 (RUB)"
+          ]
+        },
+        "employee": {
+          "@type": "Person",
+          "name": "Насыров Илья Валерьевич",
+          "jobTitle": "Директор"
         }
       }
     </script>
@@ -113,6 +148,7 @@
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -143,7 +179,7 @@
           <a
             href="tel:+77273110170"
             class="header__contact header__contact--phone">
-            +7 (727) 311-01-70
+            +7 (727) 311 01 70
             <svg
               width="24"
               height="24"
@@ -193,31 +229,8 @@
 
           <div class="menu__content">
             <div class="menu__section">
-              <a href="./security.html" class="menu__section-title">
-                Информационная безопасность и технологии
-              </a>
-              <ul class="menu__list">
-                <li class="menu__item">
-                  <a href="/security/industry.html" class="menu__link"
-                    >Промышленная безопасность (OT Security)</a
-                  >
-                </li>
-                <li class="menu__item">
-                  <a href="/security/program.html" class="menu__link"
-                    >Программное обеспечение Sunbird</a
-                  >
-                </li>
-                <li class="menu__item">
-                  <a href="/security/audit.html" class="menu__link"
-                    >Осуществление аудита IT-инфраструктуры</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="menu__section">
               <a href="/automation.html" class="menu__section-title">
-                Автоматизированная система управления
+                Автоматизированные системы управления
               </a>
               <ul class="menu__list">
                 <li class="menu__item">
@@ -243,6 +256,28 @@
                 </li>
               </ul>
             </div>
+            <div class="menu__section">
+              <a href="./security.html" class="menu__section-title">
+                Информационная безопасность и&nbsp;технологии
+              </a>
+              <ul class="menu__list">
+                <li class="menu__item">
+                  <a href="/security/industry.html" class="menu__link"
+                    >Промышленная безопасность (OT&nbsp;Security)</a
+                  >
+                </li>
+                <li class="menu__item">
+                  <a href="/security/program.html" class="menu__link"
+                    >Программное обеспечение Sunbird</a
+                  >
+                </li>
+                <li class="menu__item">
+                  <a href="/security/audit.html" class="menu__link"
+                    >Осуществление аудита IT-инфраструктуры</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="menu__footer">
@@ -251,12 +286,12 @@
             <div class="menu__info">
               <p class="menu__address">
                 Республика Казахстан, 050059, г. Алматы, пр. Аль-Фараби 19, БЦ
-                Нурлы-Тау, блок 4б, этаж 6, офис 606
+                Нурлы-Тау, блок&nbsp;4б, этаж&nbsp;6, офис 606
               </p>
 
               <div class="menu__contacts">
                 <a href="tel:+77273110170" class="menu__contact"
-                  >+7 (727) 311-01-70</a
+                  >+7 (727) 311 01 70</a
                 >
                 <a href="mailto:info@sinatech.pro" class="menu__contact"
                   >info@sinatech.pro</a
@@ -273,17 +308,19 @@
         <div class="preview-fill">
           <div class="preview-left">
             <p class="preview__description">
-              Главная → Автоматизированная система управления... → Поставка
-              оборудования и интеграция в технологически...
+              Главная &rarr; Автоматизированные системы управления... &rarr;
+              Поставка оборудования и&nbsp;интеграция в&nbsp;технологически...
             </p>
             <p class="preview__title title">
-              Поставка оборудования и интеграция в технологический процесс
+              Поставка оборудования и&nbsp;интеграция в&nbsp;технологический
+              процесс
             </p>
             <p class="preview__text">
-              Мы обеспечиваем полный цикл работ — от поставки комплектующих до
-              ввода системы в эксплуатацию с гарантией работоспособности.
+              Мы&nbsp;обеспечиваем полный цикл работ&nbsp;&mdash;
+              от&nbsp;поставки комплектующих до ввода системы
+              в&nbsp;эксплуатацию с&nbsp;гарантией работоспособности.
             </p>
-            <a href="" class="link link--blue">
+            <button class="link link--blue open-form-button">
               <p class="link__text">Запросить консультацию</p>
               <svg
                 width="24"
@@ -295,11 +332,11 @@
                   d="M19.4406 13.0004C19.2206 13.0004 18.9906 12.9304 18.7706 12.8804C18.325 12.7823 17.8872 12.652 17.4606 12.4904C16.9967 12.3216 16.4867 12.3304 16.0289 12.515C15.5711 12.6996 15.1977 13.047 14.9806 13.4904L14.7606 13.9404C13.7867 13.3983 12.8917 12.7254 12.1006 11.9404C11.3155 11.1492 10.6426 10.2542 10.1006 9.28036L10.5206 9.00036C10.964 8.78327 11.3114 8.40989 11.496 7.95205C11.6806 7.49421 11.6894 6.98427 11.5206 6.52036C11.3609 6.0931 11.2306 5.65541 11.1306 5.21036C11.0806 4.99036 11.0406 4.76036 11.0106 4.53036C10.8892 3.82598 10.5202 3.1881 9.97021 2.7316C9.42021 2.27509 8.72529 2.02997 8.01059 2.04036H5.01059C4.57962 2.03631 4.15284 2.12517 3.7593 2.30089C3.36576 2.4766 3.0147 2.73505 2.73002 3.05864C2.44534 3.38222 2.23372 3.76335 2.10958 4.17607C1.98543 4.58879 1.95167 5.02342 2.01059 5.45036C2.54333 9.63974 4.45662 13.5322 7.44824 16.513C10.4399 19.4938 14.3393 21.3929 18.5306 21.9104H18.9106C19.648 21.9114 20.36 21.6409 20.9106 21.1504C21.227 20.8674 21.4797 20.5205 21.6521 20.1327C21.8244 19.7448 21.9126 19.3248 21.9106 18.9004V15.9004C21.8983 15.2057 21.6454 14.5369 21.1949 14.008C20.7445 13.4791 20.1244 13.123 19.4406 13.0004ZM19.9406 19.0004C19.9404 19.1423 19.91 19.2827 19.8514 19.412C19.7927 19.5413 19.7073 19.6566 19.6006 19.7504C19.4892 19.8474 19.3586 19.9198 19.2173 19.9629C19.076 20.0059 18.9272 20.0187 18.7806 20.0004C15.0355 19.5202 11.5568 17.8068 8.89331 15.1306C6.22978 12.4545 4.533 8.96769 4.07059 5.22036C4.05525 5.0739 4.06948 4.92586 4.11242 4.785C4.15536 4.64414 4.22615 4.51335 4.32059 4.40036C4.4143 4.29369 4.52965 4.2082 4.65897 4.14957C4.78829 4.09095 4.9286 4.06054 5.07059 4.06036H8.07059C8.30314 4.05518 8.53021 4.13124 8.71273 4.27543C8.89525 4.41962 9.0218 4.62293 9.07059 4.85036C9.11059 5.12369 9.16059 5.39369 9.22059 5.66036C9.33569 6.18761 9.48944 6.70567 9.68059 7.21036L8.28059 7.86036C8.16089 7.91528 8.05321 7.9933 7.96375 8.08995C7.87428 8.1866 7.80479 8.29997 7.75926 8.42355C7.71373 8.54713 7.69306 8.67849 7.69844 8.81008C7.70381 8.94167 7.73513 9.0709 7.79059 9.19036C9.2305 12.2726 11.7083 14.7504 14.7906 16.1904C15.0341 16.2904 15.3071 16.2904 15.5506 16.1904C15.6753 16.1457 15.7899 16.0768 15.8878 15.9875C15.9856 15.8983 16.0648 15.7905 16.1206 15.6704L16.7406 14.2704C17.2578 14.4545 17.7854 14.6081 18.3206 14.7304C18.5873 14.7904 18.8573 14.8404 19.1306 14.8804C19.358 14.9291 19.5613 15.0557 19.7055 15.2382C19.8497 15.4207 19.9258 15.6478 19.9206 15.8804L19.9406 19.0004Z"
                   fill="currentColor" />
               </svg>
-            </a>
+            </button>
           </div>
-          <img src="/assets/imgs/design-prev.png" alt="" class="preview-mid" />
+          <img src="/assets/imgs/design-prev.webp" alt="" class="preview-mid" />
           <div class="preview-tel">
-            <div class="preview-tel-icon">
+            <button class="preview-tel-icon open-form-button">
               <svg
                 width="24"
                 height="24"
@@ -310,8 +347,8 @@
                   d="M19.4406 13C19.2206 13 18.9906 12.93 18.7706 12.88C18.325 12.782 17.8872 12.6516 17.4606 12.49C16.9967 12.3212 16.4867 12.33 16.0289 12.5146C15.5711 12.6992 15.1977 13.0466 14.9806 13.49L14.7606 13.94C13.7867 13.398 12.8917 12.725 12.1006 11.94C11.3155 11.1488 10.6426 10.2538 10.1006 9.27999L10.5206 8.99999C10.964 8.78291 11.3114 8.40952 11.496 7.95168C11.6806 7.49384 11.6894 6.9839 11.5206 6.51999C11.3609 6.09273 11.2306 5.65504 11.1306 5.20999C11.0806 4.98999 11.0406 4.75999 11.0106 4.52999C10.8892 3.82561 10.5202 3.18773 9.97021 2.73123C9.42021 2.27473 8.72529 2.0296 8.01059 2.03999H5.01059C4.57962 2.03594 4.15284 2.1248 3.7593 2.30052C3.36576 2.47624 3.0147 2.73469 2.73002 3.05827C2.44534 3.38186 2.23372 3.76298 2.10958 4.1757C1.98543 4.58842 1.95167 5.02305 2.01059 5.44999C2.54333 9.63937 4.45662 13.5319 7.44824 16.5126C10.4399 19.4934 14.3393 21.3925 18.5306 21.91H18.9106C19.648 21.9111 20.36 21.6405 20.9106 21.15C21.227 20.867 21.4797 20.5202 21.6521 20.1323C21.8244 19.7444 21.9126 19.3244 21.9106 18.9V15.9C21.8983 15.2054 21.6454 14.5365 21.1949 14.0077C20.7445 13.4788 20.1244 13.1226 19.4406 13ZM19.9406 19C19.9404 19.142 19.91 19.2823 19.8514 19.4116C19.7927 19.5409 19.7073 19.6563 19.6006 19.75C19.4892 19.847 19.3586 19.9194 19.2173 19.9625C19.076 20.0056 18.9272 20.0183 18.7806 20C15.0355 19.5198 11.5568 17.8065 8.89331 15.1303C6.22978 12.4541 4.533 8.96733 4.07059 5.21999C4.05525 5.07353 4.06948 4.92549 4.11242 4.78463C4.15536 4.64378 4.22615 4.51298 4.32059 4.39999C4.4143 4.29332 4.52965 4.20783 4.65897 4.14921C4.78829 4.09058 4.9286 4.06017 5.07059 4.05999H8.07059C8.30314 4.05482 8.53021 4.13087 8.71273 4.27506C8.89525 4.41925 9.0218 4.62256 9.07059 4.84999C9.11059 5.12332 9.16059 5.39332 9.22059 5.65999C9.33569 6.18724 9.48944 6.70531 9.68059 7.20999L8.28059 7.85999C8.16089 7.91491 8.05321 7.99294 7.96375 8.08959C7.87428 8.18623 7.80479 8.2996 7.75926 8.42318C7.71373 8.54677 7.69306 8.67812 7.69844 8.80971C7.70381 8.9413 7.73513 9.07054 7.79059 9.18999C9.2305 12.2722 11.7083 14.7501 14.7906 16.19C15.0341 16.29 15.3071 16.29 15.5506 16.19C15.6753 16.1454 15.7899 16.0764 15.8878 15.9872C15.9856 15.8979 16.0648 15.7901 16.1206 15.67L16.7406 14.27C17.2578 14.4542 17.7854 14.6078 18.3206 14.73C18.5873 14.79 18.8573 14.84 19.1306 14.88C19.358 14.9288 19.5613 15.0553 19.7055 15.2378C19.8497 15.4204 19.9258 15.6474 19.9206 15.88L19.9406 19Z"
                   fill="currentColor" />
               </svg>
-            </div>
-            <a href="/index.html" class="preview-tel-open">
+            </button>
+            <button onclick="goBack()" class="preview-tel-open">
               <svg
                 width="24"
                 height="24"
@@ -324,7 +361,7 @@
                   d="M15.9997 19.438L14.9547 20.5L7.28865 12.71C7.10415 12.5197 7.00098 12.2651 7.00098 12C7.00098 11.7349 7.10415 11.4803 7.28865 11.29L14.9547 3.5L15.9997 4.563L8.68165 12L15.9997 19.438Z"
                   fill="currentColor" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -333,27 +370,28 @@
           <div class="services-element">
             <div class="services-element-what block">
               <p class="services-element__title">
-                <span>Настройка ПО на объекте</span>, тестирование алгоритмов и
-                поддержка заказчика.
+                <span>Настройка ПО&nbsp;на&nbsp;объекте</span>, тестирование
+                алгоритмов и поддержка заказчика.
               </p>
               <p class="services-element__text">
-                Подбор, закуп, логистика и сопровождение поставок оборудования.
+                Подбор, закуп, логистика и&nbsp;сопровождение поставок
+                оборудования.
               </p>
             </div>
             <div class="services-element-content block">
               <p class="services-element__title">
-                Настройка ПО на объекте, тестирование алгоритмов и поддержка
-                заказчика.
+                Настройка ПО&nbsp;на&nbsp;объекте, тестирование алгоритмов
+                и&nbsp; поддержка заказчика.
               </p>
               <p class="services-element__text">
-                Анализ технического задания и подбор оборудования под
+                Анализ технического задания и&nbsp;подбор оборудования под
                 технологию. Формирование спецификаций, ведомостей, опросных
                 листов. <br />
                 Логистика, таможня, сертификация.<br />
                 Контроль поставки, инспекция.<br />
-                Постпроектная поддержка и гарантии.
+                Постпроектная поддержка и&nbsp;гарантии.
               </p>
-              <button class="link link--blue">
+              <button class="link link--blue open-form-button">
                 <p class="link__text">Запросить консультацию</p>
                 <svg
                   width="24"
@@ -374,22 +412,24 @@
                 <span>Поставка</span> шкафов управления
               </p>
               <p class="services-element__text">
-                Проектирование, сборка и поставка шкафов управления, силовых
-                щитов, пускателей, релейной защиты и распределительных устройств
+                Проектирование, сборка и&nbsp;поставка шкафов управления,
+                силовых щитов, пускателей, релейной защиты
+                и&nbsp;распределительных устройств
               </p>
             </div>
             <div class="services-element-content block">
               <p class="services-element__title">Поставка шкафов управления</p>
               <p class="services-element__text">
                 Поставка, ШУ, шкафов автоматики. Комплектующие: ABB, Schneider,
-                Siemens и др. <br />
-                Подбор пускателей, реле, УЗО, преобразователей частоты и прочих
-                . <br />
-                Заводские испытания (FAT) и тестирование функционала. <br />
-                Доставка на объект, переупаковка, маркировка. <br />
-                Гарантийное и послегарантийное сопровождение.
+                Siemens и&nbsp;др. <br />
+                Подбор пускателей, реле, УЗО, преобразователей частоты
+                и&nbsp;прочих . <br />
+                Заводские испытания (FAT) и&nbsp;тестирование функционала.
+                <br />
+                Доставка на&nbsp;объект, переупаковка, маркировка. <br />
+                Гарантийное и&nbsp;послегарантийное сопровождение.
               </p>
-              <button class="link link--blue">
+              <button class="link link--blue open-form-button">
                 <p class="link__text">Запросить консультацию</p>
                 <svg
                   width="24"
@@ -410,8 +450,8 @@
                 <span>Поставка</span> кабельной продукции
               </p>
               <p class="services-element__text">
-                Поставка силовых, контрольных, экранированных и полевых кабелей,
-                кабельных лотков и аксессуаров.
+                Поставка силовых, контрольных, экранированных и&nbsp;полевых
+                кабелей, кабельных лотков и&nbsp;аксессуаров.
               </p>
             </div>
             <div class="services-element-content block">
@@ -423,9 +463,9 @@
                 Поставка лотков, коробов, гофры (IP67/IP68).<br />
                 Стальные, нержавеющие, пластиковые трубопроводы для кабелей.<br />
                 Подбор сечения, конфигурации, условий прокладки.<br />
-                Сертификация, паспорта на продукцию.
+                Сертификация, паспорта на&nbsp;продукцию.
               </p>
-              <button class="link link--blue">
+              <button class="link link--blue open-form-button">
                 <p class="link__text">Запросить консультацию</p>
                 <svg
                   width="24"
@@ -443,7 +483,7 @@
           <div class="services-element">
             <div class="services-element-what block">
               <p class="services-element__title">
-                Поставка комплектов <span>“под ключ”</span>
+                Поставка комплектов <span>&laquo;под ключ&raquo;</span>
               </p>
               <p class="services-element__text">
                 Поставка полностью собранных комплектов оборудования под
@@ -452,7 +492,7 @@
             </div>
             <div class="services-element-content block">
               <p class="services-element__title">
-                Поставка комплектов “под ключ”
+                Поставка комплектов &laquo;под ключ&raquo;
               </p>
               <p class="services-element__text">
                 Комплектные решения для технологических процессов, узлов учёта,
@@ -462,9 +502,9 @@
                 Инжиниринг, проектная документация, 3D-схемы, спецификации.<br />
                 Инспекция завода. Логистика, упаковка, маркировка, готовность к
                 монтажу.<br />
-                Полное сопровождение до ввода в эксплуатацию.
+                Полное сопровождение до&nbsp;ввода в&nbsp;эксплуатацию.
               </p>
-              <button class="link link--blue">
+              <button class="link link--blue open-form-button">
                 <p class="link__text">Запросить консультацию</p>
                 <svg
                   width="24"
@@ -508,26 +548,26 @@
               Разработка SCADA-системы для блочной установки освоения скважин
             </p>
             <img
-              src="/assets/imgs/projekst/photo-1.png"
+              src="/assets/imgs/projekst/photo-1.webp"
               alt=""
               class="projects__img" />
             <p class="projects__subtitle">Что сделано:</p>
             <ul class="projects__ul">
               <li class="projects__ul-element">
                 Выполнено описание технологического процесса <br />
-                с указанием всех объектов управления и мониторинга;
+                с&nbsp;указанием всех объектов управления и&nbsp;мониторинга;
               </li>
               <li class="projects__ul-element">
-                Разработана функциональная и структурная схема <br />
+                Разработана функциональная и&nbsp;структурная схема <br />
                 аппаратного комплекса системы автоматизации;
               </li>
               <li class="projects__ul-element">
-                Проведена работа по интеграции существующих систем <br />
-                автоматизации в единую систему управления;
+                Проведена работа по&nbsp;интеграции существующих систем <br />
+                автоматизации в&nbsp;единую систему управления;
               </li>
             </ul>
             <button class="link link--blue">
-              <p class="link__text">Подробнее о проекте</p>
+              <p class="link__text">Подробнее о&nbsp;проекте</p>
               <svg
                 width="24"
                 height="24"
@@ -548,24 +588,25 @@
               Автоматизация газоизмерительной станции (ГИС).
             </p>
             <img
-              src="/assets/imgs/projekst/photo-2.png"
+              src="/assets/imgs/projekst/photo-2.webp"
               alt=""
               class="projects__img" />
             <p class="projects__subtitle">Что сделано:</p>
             <ul class="projects__ul">
               <li class="projects__ul-element">
-                Разработка и согласование проектной документации;
+                Разработка и&nbsp;согласование проектной документации;
               </li>
               <li class="projects__ul-element">
-                Сборка шкафов управления, поставка и монтаж оборудования КИПиА;
+                Сборка шкафов управления, поставка и&nbsp;монтаж оборудования
+                КИПиА;
               </li>
               <li class="projects__ul-element">
                 Интеграция SCADA-системы, системы коммерческого учёта газа,
-                визуализация основных метрик в виде дашбордов;
+                визуализация основных метрик в&nbsp;виде дашбордов;
               </li>
             </ul>
             <button class="link link--blue">
-              <p class="link__text">Подробнее о проекте</p>
+              <p class="link__text">Подробнее о&nbsp;проекте</p>
               <svg
                 width="24"
                 height="24"
@@ -586,26 +627,26 @@
               Разработка SCADA-системы для блочной установки освоения скважин
             </p>
             <img
-              src="/assets/imgs/projekst/photo-1.png"
+              src="/assets/imgs/projekst/photo-1.webp"
               alt=""
               class="projects__img" />
             <p class="projects__subtitle">Что сделано:</p>
             <ul class="projects__ul">
               <li class="projects__ul-element">
                 Выполнено описание технологического процесса <br />
-                с указанием всех объектов управления и мониторинга;
+                с&nbsp;указанием всех объектов управления и&nbsp;мониторинга;
               </li>
               <li class="projects__ul-element">
-                Разработана функциональная и структурная схема <br />
+                Разработана функциональная и&nbsp;структурная схема <br />
                 аппаратного комплекса системы автоматизации;
               </li>
               <li class="projects__ul-element">
-                Проведена работа по интеграции существующих систем <br />
-                автоматизации в единую систему управления;
+                Проведена работа по&nbsp;интеграции существующих систем <br />
+                автоматизации в&nbsp;единую систему управления;
               </li>
             </ul>
             <button class="link link--blue">
-              <p class="link__text">Подробнее о проекте</p>
+              <p class="link__text">Подробнее о&nbsp;проекте</p>
               <svg
                 width="24"
                 height="24"
@@ -626,24 +667,25 @@
               Автоматизация газоизмерительной станции (ГИС).
             </p>
             <img
-              src="/assets/imgs/projekst/photo-2.png"
+              src="/assets/imgs/projekst/photo-2.webp"
               alt=""
               class="projects__img" />
             <p class="projects__subtitle">Что сделано:</p>
             <ul class="projects__ul">
               <li class="projects__ul-element">
-                Разработка и согласование проектной документации;
+                Разработка и&nbsp;согласование проектной документации;
               </li>
               <li class="projects__ul-element">
-                Сборка шкафов управления, поставка и монтаж оборудования КИПиА;
+                Сборка шкафов управления, поставка и&nbsp;монтаж оборудования
+                КИПиА;
               </li>
               <li class="projects__ul-element">
                 Интеграция SCADA-системы, системы коммерческого учёта газа,
-                визуализация основных метрик в виде дашбордов;
+                визуализация основных метрик в&nbsp;виде дашбордов;
               </li>
             </ul>
             <button class="link link--blue">
-              <p class="link__text">Подробнее о проекте</p>
+              <p class="link__text">Подробнее о&nbsp;проекте</p>
               <svg
                 width="24"
                 height="24"
@@ -675,22 +717,23 @@
           </button>
         </div>
       </section>
-      <section class="section about">
+      <section class="section about" id="about">
         <p class="about__annotation">О компании</p>
         <div class="about-fill">
           <div class="about-left">
             <p class="title">
-              Мы — профессиональная команда экспертов в области
-              <span>информационной безопасности</span> и
+              Мы&nbsp;&mdash; профессиональная команда экспертов в&nbsp;области
+              <span>информационной безопасности</span> <br />
+              и
               <span>автоматизации</span>
-              технологических процессов.
+              технологических процессов. технологических процессов. процессами.
             </p>
             <p class="about__text desk">
-              Наша компания специализируется на создании комплексных решений для
-              защиты информационных систем и управления производственными
-              процессами.
+              Наша компания специализируется на&nbsp;создании комплексных
+              решений для защиты информационных систем и&nbsp;управления
+              производственными процессами.
             </p>
-            <button class="link desk">
+            <button class="link desk open-form-button">
               <p class="link__text">Запросить консультацию</p>
               <svg
                 width="24"
@@ -717,11 +760,11 @@
             autoplay>
           </model-viewer>
           <p class="about__text mob">
-            Наша компания специализируется на создании комплексных решений для
-            защиты информационных систем и управления производственными
+            Наша компания специализируется на&nbsp;создании комплексных решений
+            для защиты информационных систем и&nbsp;управления производственными
             процессами.
           </p>
-          <button class="link mob">
+          <button class="link mob open-form-button">
             <p class="link__text">Запросить консультацию</p>
             <svg
               width="24"
@@ -925,24 +968,148 @@
           </button>
         </div>
       </section>
+      <div class="form">
+        <div class="form-content">
+          <!-- ФОРМА -->
+          <div class="form-block">
+            <div class="form-head">
+              <p class="form__title">Запросить консультацию</p>
+              <button class="close" type="button">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_880_3745)">
+                    <path
+                      d="M3.516 20.484C2.36988 19.377 1.45569 18.0529 0.826781 16.5889C0.197873 15.1248 -0.133162 13.5502 -0.147008 11.9568C-0.160854 10.3635 0.142767 8.78331 0.746137 7.30855C1.34951 5.83379 2.24055 4.49397 3.36726 3.36726C4.49397 2.24055 5.83379 1.34951 7.30855 0.746137C8.78331 0.142767 10.3635 -0.160854 11.9568 -0.147008C13.5502 -0.133162 15.1248 0.197873 16.5889 0.826781C18.0529 1.45569 19.377 2.36988 20.484 3.516C22.6699 5.77922 23.8794 8.81045 23.8521 11.9568C23.8247 15.1032 22.5627 18.1129 20.3378 20.3378C18.1129 22.5627 15.1032 23.8247 11.9568 23.8521C8.81045 23.8794 5.77922 22.6699 3.516 20.484ZM5.208 18.792C7.00935 20.5933 9.4525 21.6053 12 21.6053C14.5475 21.6053 16.9906 20.5933 18.792 18.792C20.5933 16.9906 21.6053 14.5475 21.6053 12C21.6053 9.4525 20.5933 7.00935 18.792 5.208C16.9906 3.40665 14.5475 2.39466 12 2.39466C9.4525 2.39466 7.00935 3.40665 5.208 5.208C3.40665 7.00935 2.39466 9.4525 2.39466 12C2.39466 14.5475 3.40665 16.9906 5.208 18.792ZM17.088 8.604L13.692 12L17.088 15.396L15.396 17.088L12 13.692L8.604 17.088L6.912 15.396L10.308 12L6.912 8.604L8.604 6.912L12 10.308L15.396 6.912L17.088 8.604Z"
+                      fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_880_3745">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+
+            <form class="form-fill" id="consultForm">
+              <div class="form-fill__row">
+                <input type="text" name="name" placeholder="Имя" required />
+                <input type="email" name="email" placeholder="Email" required />
+              </div>
+
+              <input
+                type="text"
+                name="subject"
+                placeholder="Тема вопроса"
+                required />
+              <textarea
+                name="message"
+                placeholder="Ваш вопрос"
+                required></textarea>
+
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" required />
+                <span class="checkbox__box"></span>
+                <span class="checkbox__text"
+                  >Я даю согласие на обработку персональных данных</span
+                >
+              </label>
+
+              <button type="submit" class="form-button form-button--submit">
+                <span class="btn-text">Отправить</span>
+                <span class="btn-loader"></span>
+              </button>
+            </form>
+            <div class="form-info">
+              <p class="form-info__left form-info__text">
+                Алматы, пр. Аль-Фараби 19, БЦ Нурлы-Тау, блок 4б, этаж 6, офис
+                606
+              </p>
+              <div class="form-info-right">
+                <p class="form-info__text">+7 (727) 311 01 70</p>
+                <a
+                  href="mailto:info@sinatech.pro"
+                  class="form-info__text form-info__text--link"
+                  >info@sinatech.pro</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- THANKS -->
+          <div class="form-block is-hidden" id="formThanks">
+            <div class="form-head">
+              <p class="form__title form__title--2">
+                Сообщение отправлено<br />Спасибо!
+              </p>
+              <button class="close" type="button">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_880_3745)">
+                    <path
+                      d="M3.516 20.484C2.36988 19.377 1.45569 18.0529 0.826781 16.5889C0.197873 15.1248 -0.133162 13.5502 -0.147008 11.9568C-0.160854 10.3635 0.142767 8.78331 0.746137 7.30855C1.34951 5.83379 2.24055 4.49397 3.36726 3.36726C4.49397 2.24055 5.83379 1.34951 7.30855 0.746137C8.78331 0.142767 10.3635 -0.160854 11.9568 -0.147008C13.5502 -0.133162 15.1248 0.197873 16.5889 0.826781C18.0529 1.45569 19.377 2.36988 20.484 3.516C22.6699 5.77922 23.8794 8.81045 23.8521 11.9568C23.8247 15.1032 22.5627 18.1129 20.3378 20.3378C18.1129 22.5627 15.1032 23.8247 11.9568 23.8521C8.81045 23.8794 5.77922 22.6699 3.516 20.484ZM5.208 18.792C7.00935 20.5933 9.4525 21.6053 12 21.6053C14.5475 21.6053 16.9906 20.5933 18.792 18.792C20.5933 16.9906 21.6053 14.5475 21.6053 12C21.6053 9.4525 20.5933 7.00935 18.792 5.208C16.9906 3.40665 14.5475 2.39466 12 2.39466C9.4525 2.39466 7.00935 3.40665 5.208 5.208C3.40665 7.00935 2.39466 9.4525 2.39466 12C2.39466 14.5475 3.40665 16.9906 5.208 18.792ZM17.088 8.604L13.692 12L17.088 15.396L15.396 17.088L12 13.692L8.604 17.088L6.912 15.396L10.308 12L6.912 8.604L8.604 6.912L12 10.308L15.396 6.912L17.088 8.604Z"
+                      fill="white" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_880_3745">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+
+            <p class="form__text">
+              Мы уже работаем над вашим запросом.<br />
+              В ближайшее время менеджер свяжется с вами.
+            </p>
+            <p class="form__tel">
+              Если у вас срочный вопрос, звоните: +7 (727) 311-01-70
+            </p>
+
+            <button class="form-button form-button--close">Закрыть</button>
+            <div class="form-info">
+              <p class="form-info__left form-info__text">
+                Алматы, пр. Аль-Фараби 19, БЦ Нурлы-Тау, блок 4б, этаж 6, офис
+                606
+              </p>
+              <div class="form-info-right">
+                <p class="form-info__text">+7 (727) 311 01 70</p>
+                <a
+                  href="mailto:info@sinatech.pro"
+                  class="form-info__text form-info__text--link"
+                  >info@sinatech.pro</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
       <div class="footer-head">
         <div class="footer-block">
-          <a href="/" class="footer__logo">Sina<span>tech</span></a>
+          <a href="/" class="footer__logo">Sinatech</a>
           <p class="footer__info">
-            Республика Казахстан, 050059, г. Алматы, пр. Аль-<br />Фараби 19, БЦ
-            Нурлы-Тау, блок 4б, этаж 6, офис 606
+            Республика Казахстан, 050059, г. Алматы, пр. Аль-Фараби 19, БЦ
+            Нурлы-Тау, блок&nbsp;4б, этаж&nbsp;6, офис 606
           </p>
         </div>
         <div class="footer-links">
-          <a href="" class="footer-links__element"
+          <a href="/security.html" class="footer-links__element"
             >Информационная безопасность</a
           >
-          <a href="" class="footer-links__element">АСУ ТП</a>
-          <a href="" class="footer-links__element">О компании</a>
-          <a href="" class="footer-links__element">Контакты</a>
+          <a href="/automation.html" class="footer-links__element">АСУ ТП</a>
+          <a href="#about" class="footer-links__element">О компании</a>
         </div>
         <p class="footer__who">
           Интегратор в области информационных технологий
@@ -950,23 +1117,23 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-left">
-          <a href="" class="footer-bottom__link">+7 (727) 311-01-70</a>
-          <a href="" class="footer-bottom__link">info@sinatech.pro</a>
-          <a href="" class="footer-bottom__link">Политика конфиденциальности</a>
+          <a href="tel:+77273110170" class="footer-bottom__link"
+            >+7 (727) 311 01 70</a
+          >
+          <a href="mailto:info@sinatech.pro" class="footer-bottom__link"
+            >info@sinatech.pro</a
+          >
+          <a href="/privacy-policy" class="footer-bottom__link"
+            >Политика конфиденциальности</a
+          >
         </div>
         <p class="footer-bottom__copyright">
-          Все права принадлежат ООО “Синатек” 2025
+          Все права принадлежат ТОО "Sinatech" 2026
         </p>
       </div>
     </footer>
 
     <script src="/scripts/skripts.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <script>
       $(document).ready(function () {
@@ -1091,5 +1258,6 @@
         });
       });
     </script>
+    <script src="/scripts/form.js"></script>
   </body>
 </html>

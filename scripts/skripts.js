@@ -64,3 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Вызываем один раз при загрузке для начального состояния
   handleScroll();
 });
+
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    // Если в истории только текущая страница,
+    // перенаправляем на главную или другую страницу
+    window.location.href = "/";
+  }
+}
