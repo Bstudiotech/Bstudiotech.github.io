@@ -9,13 +9,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const maxRadius = 24; // Максимальный радиус нижних углов
 
   function toggleMenu() {
-    burgerButton.classList.toggle("burger--active");
-    menu.classList.toggle("menu--active");
-  }
+    const isActive = burgerButton.classList.contains("burger--active");
 
+    burgerButton.classList.toggle("burger--active");
+    burgerButton.classList.toggle("burger--out", isActive);
+    menu.classList.toggle("menu--active");
+
+    if (isActive) {
+      burgerButton.classList.remove("burger--opened");
+    } else {
+      burgerButton.classList.add("burger--opened");
+    }
+  }
   function closeMenu() {
-    menu.classList.remove("menu--active");
     burgerButton.classList.remove("burger--active");
+    burgerButton.classList.add("burger--out");
+    menu.classList.remove("menu--active");
+    burgerButton.classList.remove("burger--opened");
   }
 
   function handleScroll() {
