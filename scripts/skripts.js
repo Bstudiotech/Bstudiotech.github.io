@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const header = document.querySelector(".header");
 
-  const scrollThreshold = 50; // Порог для класса
-  const maxRadius = 24; // Максимальный радиус нижних углов
+  const scrollThreshold = 50;
+  const maxRadius = 24;
 
   function toggleMenu() {
     const isActive = burgerButton.classList.contains("burger--active");
@@ -32,14 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentScrollTop =
       window.pageYOffset || document.documentElement.scrollTop;
 
-    // Добавление/удаление класса
     if (currentScrollTop > scrollThreshold) {
       header.classList.add("header--scroll");
     } else {
       header.classList.remove("header--scroll");
     }
 
-    // Плавное изменение border-radius нижних углов
     const radius = Math.min(
       (currentScrollTop / scrollThreshold) * maxRadius,
       maxRadius
@@ -76,8 +74,6 @@ function goBack() {
   if (window.history.length > 1) {
     window.history.back();
   } else {
-    // Если в истории только текущая страница,
-    // перенаправляем на главную или другую страницу
     window.location.href = "/";
   }
 }
