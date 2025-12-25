@@ -58,6 +58,8 @@
         }
       }
     </script>
+    <script src="/scripts/translate.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
   <body>
     <header class="header">
@@ -169,6 +171,17 @@
                 alt=""
                 class="language-content__img" />
               Қазақ тілі
+            </button>
+            <button
+              data-lang="zh-CN"
+              class="language-content__element notranslate"
+              translate="no"
+              onclick="setLang('zh-CN')">
+              <img
+                src="/assets/imgs/china.png"
+                alt=""
+                class="language-content__img" />
+              中文
             </button>
           </div>
         </div>
@@ -343,5 +356,6 @@
     <div id="google_translate_element" style="display: none"></div>
 
     <script src="/scripts/skripts.js"></script>
+    <script src="/scripts/projects.js"></script>
   </body>
 </html>

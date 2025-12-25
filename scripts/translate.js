@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const LANG_DEFAULT = "ru";
-const LANGS = ["ru", "en", "kk"];
+const LANGS = ["ru", "en", "kk", "zh-CN"];
 const STORAGE_KEY = "site_lang";
 const RESET_KEY = "gt_reset";
 
@@ -48,13 +48,13 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
       pageLanguage: "ru",
-      includedLanguages: "en,kk",
+      includedLanguages: "en,kk,zh-CN",
       autoDisplay: false,
     },
     "google_translate_element"
   );
 
-  // если это возврат после reset — не дергаем перевод
+  // если это возврат после RU — не переводим
   if (sessionStorage.getItem(RESET_KEY)) {
     sessionStorage.removeItem(RESET_KEY);
     updateButtons(LANG_DEFAULT);
@@ -62,6 +62,7 @@ function googleTranslateElementInit() {
   }
 
   const savedLang = localStorage.getItem(STORAGE_KEY) || LANG_DEFAULT;
+
   if (savedLang !== LANG_DEFAULT) {
     waitForSelect(() => setLang(savedLang, false));
   } else {
@@ -69,7 +70,7 @@ function googleTranslateElementInit() {
   }
 }
 
-// ===== WAIT FOR SELECT =====
+// ===== WAIT FOR GOOGLE SELECT =====
 function waitForSelect(cb) {
   const i = setInterval(() => {
     const select = document.querySelector(".goog-te-combo");
@@ -80,28 +81,23 @@ function waitForSelect(cb) {
   }, 100);
 }
 
-// ===== SWITCH LANG =====
+// ===== SWITCH LANGUAGE =====
 window.setLang = function (lang, save = true) {
   if (!LANGS.includes(lang)) return;
 
   if (save) localStorage.setItem(STORAGE_KEY, lang);
   updateButtons(lang);
 
-  // ===== RU: ПОЛНЫЙ СБРОС =====
+  // ===== RU — ПОЛНЫЙ СБРОС =====
   if (lang === LANG_DEFAULT) {
-    // удаляем cookie перевода
     document.cookie =
       "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-    // помечаем, что это reset, чтобы не вызвать перевод снова
     sessionStorage.setItem(RESET_KEY, "1");
-
-    // ОДНА перезагрузка — это обязательно
     location.reload();
     return;
   }
 
-  // ===== EN / KZ =====
+  // ===== EN / KZ / CN =====
   waitForSelect((select) => {
     select.value = lang;
     select.dispatchEvent(new Event("change"));

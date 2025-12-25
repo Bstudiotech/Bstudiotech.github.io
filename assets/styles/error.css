@@ -582,6 +582,9 @@ section {
   .header {
     padding: 16px 16px 24px 16px;
   }
+  .header__top {
+    gap: 16px;
+  }
   .header__logo {
     width: 100%;
     max-width: 100%;
@@ -610,6 +613,9 @@ section {
 .burger:hover .burger__icon {
   color: #fff;
 }
+.burger:hover .item__element {
+  background: #fff !important;
+}
 .burger__text {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -623,6 +629,86 @@ section {
   color: #40414d;
   transition: all 0.5s ease-in-out;
 }
+.burger .item {
+  width: 60px;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  backface-visibility: hidden;
+  position: absolute;
+  scale: 0.7;
+}
+.burger .item-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.burger .item span {
+  display: block;
+  background: #40414d;
+  width: calc(100% - 30px);
+  height: 5px;
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  border-radius: 8px;
+}
+.burger .item span.top {
+  top: 13px;
+}
+.burger .item span.middle {
+  top: 23px;
+}
+.burger .item span.bottom {
+  top: 33px;
+}
+@keyframes item-d-top-in {
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(10px) rotate(45deg);
+  }
+}
+@keyframes item-d-middle-in {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes item-d-bottom-in {
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
+@keyframes item-d-top-out {
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(10px) rotate(-45deg);
+  }
+}
+@keyframes item-d-middle-out {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes item-d-bottom-out {
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-10px) rotate(45deg);
+  }
+}
 .burger--active {
   background: #285193;
 }
@@ -631,6 +717,57 @@ section {
 }
 .burger--active .burger__icon {
   color: #fff;
+}
+.burger--active .item__element {
+  background: #fff !important;
+}
+.burger--active .top {
+  animation-name: item-d-top-in;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+.burger--active .middle {
+  animation-name: item-d-middle-in;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+.burger--active .bottom {
+  animation-name: item-d-bottom-in;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+.burger--out .top {
+  animation-name: item-d-top-out;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+.burger--out .middle {
+  animation-name: item-d-middle-out;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
+}
+.burger--out .bottom {
+  animation-name: item-d-bottom-out;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.48, -0.28, 0.41, 1.4);
+  animation-fill-mode: forwards;
 }
 @media (max-width: 1200px) {
   .burger {
@@ -647,10 +784,67 @@ section {
   }
 }
 
+.language {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+}
+.language__block {
+  padding: 24px;
+  color: #40414d;
+  background: #fff;
+  border-radius: 24px;
+  display: flex;
+  transition: all 0.5s ease-in-out;
+}
+.language__block:hover {
+  opacity: 1;
+  background: #285193;
+  color: #fff;
+}
+.language-content {
+  top: 99px;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  opacity: 0;
+  width: 183px;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-20px);
+  padding: 24px;
+  align-items: flex-start;
+}
+.language-content__element {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #40414d;
+}
+.language--open .language-content {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+.language--open .language__block {
+  background: #285193;
+  color: #fff;
+}
+
 .menu {
   position: absolute;
   z-index: 5;
-  padding: 24px;
+  margin-top: 24px;
+  padding: 0 24px 24px 24px;
   width: 100%;
   opacity: 0;
   left: 0;
@@ -990,6 +1184,22 @@ section {
   .error__text span {
     font-size: 24px;
   }
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.skiptranslate {
+  display: none !important;
+  position: absolute;
+}
+.skiptranslate * {
+  opacity: 0 !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none !important;
 }
 
 @media (max-width: 920px) {
