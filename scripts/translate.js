@@ -90,9 +90,20 @@ window.setLang = function (lang, save = true) {
 
   // ===== RU — ПОЛНЫЙ СБРОС =====
   if (lang === LANG_DEFAULT) {
+    // 1️⃣ Явно возвращаем ru → ru
+    document.cookie = "googtrans=/ru/ru; path=/;";
+    document.cookie = "googtrans=/ru/ru; path=/ru;";
+
+    // 2️⃣ Страховочно удаляем возможные варианты
     document.cookie =
       "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie =
+      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/ru;";
+
+    // 3️⃣ Помечаем reset
     sessionStorage.setItem(RESET_KEY, "1");
+
+    // 4️⃣ ОДИН reload (обязателен)
     location.reload();
     return;
   }
