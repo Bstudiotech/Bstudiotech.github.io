@@ -1082,6 +1082,7 @@ section {
   @include laptop {
     &-left {
       max-width: 440px;
+      flex-shrink: 0;
     }
     &__title {
       margin-top: 36px;

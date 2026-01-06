@@ -1229,6 +1229,7 @@ section {
 @media (max-width: 1440px) {
   .preview-left {
     max-width: 440px;
+    flex-shrink: 0;
   }
   .preview__title {
     margin-top: 36px;
