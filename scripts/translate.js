@@ -1,49 +1,34 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const languageBlock = document.querySelector(".language");
-  const languageButton = document.querySelector(".language__block");
-  const languageItems = document.querySelectorAll(
-    ".language-content__element, [data-lang]"
-  );
+document.addEventListener("DOMContentLoaded", () => {
+  const langBlock = document.querySelector(".language");
+  const langButton = document.querySelector(".language__block");
+  const langItems = document.querySelectorAll(".language-content__element");
 
-  // Открытие/закрытие при клике на кнопку языка
-  if (languageButton) {
-    languageButton.addEventListener("click", function () {
-      languageBlock.classList.toggle("language--open");
+  langButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    langBlock.classList.toggle("language--open");
+  });
+
+  langItems.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const lang = btn.dataset.lang;
+      if (lang) setLang(lang);
+      langBlock.classList.remove("language--open");
     });
-  }
+  });
 
-  // Закрытие при клике на любой элемент выбора языка
-  if (languageItems.length > 0) {
-    languageItems.forEach((item) => {
-      item.addEventListener("click", function () {
-        languageBlock.classList.remove("language--open");
-
-        // Здесь можно добавить вызов вашей функции setLang, если нужно
-        const lang = this.getAttribute("data-lang");
-        if (lang && window.setLang) {
-          setLang(lang);
-        }
-      });
-    });
-  }
-
-  // Закрытие при клике вне блока (опционально)
-  document.addEventListener("click", function (event) {
-    if (
-      !languageBlock.contains(event.target) &&
-      !event.target.closest(".language__block")
-    ) {
-      languageBlock.classList.remove("language--open");
-    }
+  document.addEventListener("click", () => {
+    langBlock.classList.remove("language--open");
   });
 });
 
+/* ================== TRANSLATE ================== */
+
 const LANG_DEFAULT = "ru";
-const LANGS = ["ru", "en", "kk", "zh-CN"];
 const STORAGE_KEY = "site_lang";
 const RESET_KEY = "gt_reset";
+const LANGS = ["ru", "en", "kk", "zh-CN"];
 
-// ===== INIT =====
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
@@ -54,7 +39,6 @@ function googleTranslateElementInit() {
     "google_translate_element"
   );
 
-  // если это возврат после RU — не переводим
   if (sessionStorage.getItem(RESET_KEY)) {
     sessionStorage.removeItem(RESET_KEY);
     updateButtons(LANG_DEFAULT);
@@ -70,52 +54,41 @@ function googleTranslateElementInit() {
   }
 }
 
-// ===== WAIT FOR GOOGLE SELECT =====
-function waitForSelect(cb) {
-  const i = setInterval(() => {
+function waitForSelect(cb, tries = 0) {
+  const timer = setInterval(() => {
     const select = document.querySelector(".goog-te-combo");
     if (select) {
-      clearInterval(i);
+      clearInterval(timer);
       cb(select);
     }
+    if (tries++ > 50) clearInterval(timer);
   }, 100);
 }
 
-// ===== SWITCH LANGUAGE =====
 window.setLang = function (lang, save = true) {
   if (!LANGS.includes(lang)) return;
 
-  if (save) localStorage.setItem(STORAGE_KEY, lang);
   updateButtons(lang);
+  if (save) localStorage.setItem(STORAGE_KEY, lang);
 
-  // ===== RU — ПОЛНЫЙ СБРОС =====
+  // ===== RU RESET =====
   if (lang === LANG_DEFAULT) {
-    // 1️⃣ Явно возвращаем ru → ru
-    document.cookie = "googtrans=/ru/ru; path=/;";
-    document.cookie = "googtrans=/ru/ru; path=/ru;";
-
-    // 2️⃣ Страховочно удаляем возможные варианты
     document.cookie =
-      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
     document.cookie =
-      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/ru;";
-
-    // 3️⃣ Помечаем reset
+      "googtrans=; path=/ru; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
     sessionStorage.setItem(RESET_KEY, "1");
-
-    // 4️⃣ ОДИН reload (обязателен)
     location.reload();
     return;
   }
 
-  // ===== EN / KZ / CN =====
+  // ===== TRANSLATE =====
   waitForSelect((select) => {
     select.value = lang;
     select.dispatchEvent(new Event("change"));
   });
 };
 
-// ===== BUTTON STATE =====
 function updateButtons(activeLang) {
   document.querySelectorAll("[data-lang]").forEach((btn) => {
     const isActive = btn.dataset.lang === activeLang;

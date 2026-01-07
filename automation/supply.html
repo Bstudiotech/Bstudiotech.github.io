@@ -220,8 +220,11 @@
           </div>
         </button>
 
-        <div class="language" id="languageBlock">
-          <button class="language__block">
+        <div class="language notranslate" translate="no">
+          <button
+            class="language__block"
+            type="button"
+            aria-label="Change language">
             <svg
               width="24"
               height="24"
@@ -233,49 +236,37 @@
                 fill="currentColor" />
             </svg>
           </button>
-          <div class="language-content">
+
+          <div class="language-content notranslate" translate="no">
             <button
               data-lang="ru"
-              onclick="setLang('ru')"
-              class="language-content__element notranslate"
-              translate="no">
-              <img
-                src="/assets/imgs/ru.png"
-                alt=""
-                class="language-content__img" />
+              class="language-content__element active"
+              type="button">
+              <img src="/assets/imgs/ru.png" alt="" />
               Русский
             </button>
+
             <button
               data-lang="en"
-              onclick="setLang('en')"
-              class="language-content__element notranslate"
-              translate="no">
-              <img
-                src="/assets/imgs/eng.png"
-                alt=""
-                class="language-content__img" />
-              ENGLISH
+              class="language-content__element"
+              type="button">
+              <img src="/assets/imgs/eng.png" alt="" />
+              English
             </button>
+
             <button
               data-lang="kk"
-              onclick="setLang('kk')"
-              class="language-content__element notranslate"
-              translate="no">
-              <img
-                src="/assets/imgs/kaz.png"
-                alt=""
-                class="language-content__img" />
+              class="language-content__element"
+              type="button">
+              <img src="/assets/imgs/kaz.png" alt="" />
               Қазақ тілі
             </button>
+
             <button
               data-lang="zh-CN"
-              class="language-content__element notranslate"
-              translate="no"
-              onclick="setLang('zh-CN')">
-              <img
-                src="/assets/imgs/china.png"
-                alt=""
-                class="language-content__img" />
+              class="language-content__element"
+              type="button">
+              <img src="/assets/imgs/china.png" alt="" />
               中文
             </button>
           </div>
