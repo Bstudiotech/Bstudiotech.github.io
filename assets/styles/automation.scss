@@ -22,6 +22,9 @@
     font-family: $second-family;
     font-size: 14px;
     color: #000;
+    &--big {
+      font-size: 18px;
+    }
   }
   @include mobile {
     margin-top: 0;
@@ -31,6 +34,9 @@
     &-block {
       padding: 40px 24px 24px 24px;
       min-height: 420px;
+    }
+    &__text {
+      font-size: 14px;
     }
   }
 }

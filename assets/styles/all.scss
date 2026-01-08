@@ -1341,6 +1341,9 @@ section {
   }
   &-fill {
     margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     &__row {
       display: flex;
@@ -1350,7 +1353,6 @@ section {
     input,
     textarea {
       width: 100%;
-      margin-bottom: 14px;
       padding: 17px 24px;
       border: 1px solid $box-color;
       border-radius: 16px;
@@ -1488,7 +1490,6 @@ section {
     }
     &-fill__row {
       flex-direction: column;
-      gap: 0;
     }
     &__tel {
       font-size: 16px;

@@ -19,6 +19,9 @@
   font-size: 14px;
   color: #000;
 }
+.hero__text--big {
+  font-size: 18px;
+}
 @media (max-width: 920px) {
   .hero {
     margin-top: 0;
@@ -29,6 +32,9 @@
   .hero-block {
     padding: 40px 24px 24px 24px;
     min-height: 420px;
+  }
+  .hero__text {
+    font-size: 14px;
   }
 }
 
