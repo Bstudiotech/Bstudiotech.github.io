@@ -1746,9 +1746,6 @@
           <a href="mailto:info@sinatech.kz" class="footer-bottom__link"
             >info@sinatech.kz</a
           >
-          <a href="/privacy-policy" class="footer-bottom__link"
-            >Политика конфиденциальности</a
-          >
         </div>
         <p class="footer-bottom__copyright">
           Все права принадлежат ТОО "Sinatech" 2026
@@ -1765,6 +1762,40 @@
         //   СЛАЙДЕР №1
         // =================
         const slider1 = $(".slider-list-1");
+        const loader1 = $(".slider-loader__fill-1");
+
+        function updateMargins1() {
+          if (!slider1.hasClass("slick-initialized")) return;
+
+          const width = $(window).width();
+          let margin = "0 40px";
+
+          if (width < 1400) margin = "0 32px";
+          if (width < 1100) margin = "0 28px";
+          if (width < 768) margin = "0 18px";
+
+          slider1.find(".slick-slide").css({margin});
+        }
+
+        function updateLoader1(current, slick) {
+          if (!slick || slick.slideCount <= 1) return;
+
+          const total = slick.slideCount - 1;
+          loader1.css({
+            width: (current / total) * 100 + "%",
+          });
+        }
+
+        slider1.on("init", function (e, slick) {
+          updateMargins1();
+          updateLoader1(0, slick);
+        });
+
+        slider1.on("afterChange", function (e, slick, current) {
+          updateLoader1(current, slick);
+        });
+
+        slider1.on("setPosition", updateMargins1);
 
         slider1.slick({
           slidesToShow: 4,
@@ -1778,7 +1809,6 @@
           autoplay: true,
           autoplaySpeed: 2000,
           dots: false,
-
           responsive: [
             {breakpoint: 1400, settings: {slidesToShow: 3}},
             {breakpoint: 1100, settings: {slidesToShow: 2}},
@@ -1793,44 +1823,36 @@
           ],
         });
 
-        function updateMargins1() {
-          const width = $(window).width();
-          let margin = "0 40px";
-
-          if (width < 1400) margin = "0 32px";
-          if (width < 1100) margin = "0 28px";
-          if (width < 768) margin = "0 18px";
-
-          slider1.find(".slick-slide").css({margin});
-        }
-
-        slider1.on("setPosition", updateMargins1);
-
-        slider1.on("beforeChange", function (e, slick, current, next) {
-          const total = slick.slideCount - 1;
-          if (total <= 0) return;
-          $(".slider-loader__fill-1").css({
-            width: (next / total) * 100 + "%",
-          });
-        });
-
-        setTimeout(
-          () =>
-            slider1.trigger("beforeChange", [
-              null,
-              slider1.slick("getSlick"),
-              0,
-              0,
-            ]),
-          300
-        );
-
-        setTimeout(updateMargins1, 100);
-
         // =================
         //   СЛАЙДЕР №2
         // =================
         const slider2 = $(".slider-list-2");
+        const loader2 = $(".slider-loader__fill-2");
+
+        function updateMargins2() {
+          if (!slider2.hasClass("slick-initialized")) return;
+          slider2.find(".slick-slide").css({margin: "0 12px"});
+        }
+
+        function updateLoader2(current, slick) {
+          if (!slick || slick.slideCount <= 1) return;
+
+          const total = slick.slideCount - 1;
+          loader2.css({
+            width: (current / total) * 100 + "%",
+          });
+        }
+
+        slider2.on("init", function (e, slick) {
+          updateMargins2();
+          updateLoader2(0, slick);
+        });
+
+        slider2.on("afterChange", function (e, slick, current) {
+          updateLoader2(current, slick);
+        });
+
+        slider2.on("setPosition", updateMargins2);
 
         slider2.slick({
           slidesToShow: 2,
@@ -1843,7 +1865,6 @@
           cssEase: "ease",
           autoplay: false,
           dots: false,
-
           responsive: [
             {breakpoint: 1600, settings: {slidesToShow: 2}},
             {breakpoint: 1200, settings: {slidesToShow: 2}},
@@ -1858,33 +1879,6 @@
           ],
         });
 
-        function updateMargins2() {
-          slider2.find(".slick-slide").css({margin: "0 12px"});
-        }
-
-        slider2.on("setPosition", updateMargins2);
-
-        slider2.on("beforeChange", function (e, slick, current, next) {
-          const total = slick.slideCount - 1;
-          if (total <= 0) return;
-          $(".slider-loader__fill-2").css({
-            width: (next / total) * 100 + "%",
-          });
-        });
-
-        setTimeout(
-          () =>
-            slider2.trigger("beforeChange", [
-              null,
-              slider2.slick("getSlick"),
-              0,
-              0,
-            ]),
-          300
-        );
-
-        setTimeout(updateMargins2, 100);
-
         // ===== RESIZE =====
         $(window).on("resize", function () {
           setTimeout(updateMargins1, 100);
@@ -1892,6 +1886,7 @@
         });
       });
     </script>
+
     <script src="/scripts/form.js"></script>
     <script src="/scripts/projects.js"></script>
   </body>

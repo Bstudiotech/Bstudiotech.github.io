@@ -961,9 +961,6 @@
           <a href="mailto:info@sinatech.kz" class="footer-bottom__link"
             >info@sinatech.kz</a
           >
-          <a href="/privacy-policy" class="footer-bottom__link"
-            >Политика конфиденциальности</a
-          >
         </div>
         <p class="footer-bottom__copyright">
           Все права принадлежат ТОО "Sinatech" 2026
@@ -979,7 +976,47 @@
         //   СЛАЙДЕР №1
         // =================
         const slider1 = $(".slider-list-1");
+        const loader1 = $(".slider-loader__fill-1");
 
+        // ===== ФУНКЦИЯ ОТСТУПОВ =====
+        function updateMargins1() {
+          if (!slider1.hasClass("slick-initialized")) return;
+
+          const width = $(window).width();
+          let margin = "0 40px";
+
+          if (width < 1400) margin = "0 32px";
+          if (width < 1100) margin = "0 28px";
+          if (width < 768) margin = "0 18px";
+
+          slider1.find(".slick-slide").css({margin});
+        }
+
+        // ===== ПРОГРЕСС-БАР =====
+        function updateLoader1(current, slick) {
+          if (!slick || slick.slideCount <= 1) return;
+
+          const total = slick.slideCount - 1;
+          loader1.css({
+            width: (current / total) * 100 + "%",
+          });
+        }
+
+        // ===== СОБЫТИЯ SLICK =====
+        slider1.on("init", function (e, slick) {
+          updateMargins1();
+          updateLoader1(0, slick);
+        });
+
+        slider1.on("afterChange", function (e, slick, current) {
+          updateLoader1(current, slick);
+        });
+
+        slider1.on("setPosition", function () {
+          updateMargins1();
+        });
+
+        // ===== ИНИЦИАЛИЗАЦИЯ SLICK =====
         slider1.slick({
           slidesToShow: 4,
           slidesToScroll: 1,
@@ -992,10 +1029,15 @@
           autoplay: true,
           autoplaySpeed: 2000,
           dots: false,
-
           responsive: [
-            {breakpoint: 1400, settings: {slidesToShow: 3}},
-            {breakpoint: 1100, settings: {slidesToShow: 2}},
+            {
+              breakpoint: 1400,
+              settings: {slidesToShow: 3},
+            },
+            {
+              breakpoint: 1100,
+              settings: {slidesToShow: 2},
+            },
             {
               breakpoint: 768,
               settings: {
@@ -1006,40 +1048,6 @@
             },
           ],
         });
-
-        function updateMargins1() {
-          const width = $(window).width();
-          let margin = "0 40px";
-
-          if (width < 1400) margin = "0 32px";
-          if (width < 1100) margin = "0 28px";
-          if (width < 768) margin = "0 18px";
-
-          slider1.find(".slick-slide").css({margin});
-        }
-
-        slider1.on("setPosition", updateMargins1);
-
-        slider1.on("beforeChange", function (e, slick, current, next) {
-          const total = slick.slideCount - 1;
-          if (total <= 0) return;
-          $(".slider-loader__fill-1").css({
-            width: (next / total) * 100 + "%",
-          });
-        });
-
-        setTimeout(
-          () =>
-            slider1.trigger("beforeChange", [
-              null,
-              slider1.slick("getSlick"),
-              0,
-              0,
-            ]),
-          300
-        );
-
-        setTimeout(updateMargins1, 100);
 
         // ===== RESIZE =====
         $(window).on("resize", function () {
