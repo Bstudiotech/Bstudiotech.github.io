@@ -12,6 +12,18 @@
   border-radius: 24px;
   background: #fff;
 }
+.hero-block:hover {
+  opacity: 1;
+}
+.hero-block:hover .link {
+  background: #285193;
+}
+.hero-block:hover .link__text {
+  color: #fff;
+}
+.hero-block:hover .link svg {
+  color: #fff;
+}
 .hero__text {
   margin-top: auto;
   font-family: "Montserrat", sans-serif;
